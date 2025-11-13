@@ -1,0 +1,29 @@
+com.example.tecnoabuelos
+│
+├── data.datastore                 
+│   └── PreferenciasDatastore.kt
+│              
+│
+├── ui.theme                   
+│   ├── theme.kt
+│   ├── Color.kt 
+│   └── Type.kt          
+├── view       
+│   ├── home
+│   │    ├── HomeScreen.kt
+│   │    ├── HomeViewModel.kt 
+│   │	 └── lessons          
+│   │    	├── gallery
+│   │    	│   ├── GalleryScreen.kt
+│   │    	│   └── GalleryViewModel.kt 
+│   │    	├── alarms
+│   │    	├── whatsapp
+│   │     	└── browser
+│   │	
+│   └──core.navigation
+│	├── NavigationWrapper.kt
+│	└── Screens.kt
+│
+│
+│	
+└── MainActivity.kt
