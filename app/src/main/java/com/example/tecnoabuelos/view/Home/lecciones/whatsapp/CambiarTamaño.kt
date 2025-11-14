@@ -1,4 +1,4 @@
-package com.example.tecnoabuelos.view.Home.lecciones.galeria
+package com.example.tecnoabuelos.view.Home.lecciones.whatsapp
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -19,7 +19,7 @@ import com.example.tecnoabuelos.R
 import com.example.tecnoabuelos.view.Home.HomeViewModel
 
 @Composable
-fun Galeria(
+fun CambiarTamaño(
     navController: NavHostController,
     homeViewModel: HomeViewModel = viewModel()
 ) {

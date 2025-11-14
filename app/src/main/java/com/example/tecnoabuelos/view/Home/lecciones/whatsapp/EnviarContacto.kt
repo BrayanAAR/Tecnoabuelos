@@ -1,4 +1,4 @@
-package com.example.tecnoabuelos.view.Home.lecciones.galeria
+package com.example.tecnoabuelos.view.Home.lecciones.whatsapp
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -19,7 +19,7 @@ import com.example.tecnoabuelos.R
 import com.example.tecnoabuelos.view.Home.HomeViewModel
 
 @Composable
-fun Galeria(
+fun EnviarContacto(
     navController: NavHostController,
     homeViewModel: HomeViewModel = viewModel()
 ) {
@@ -33,18 +33,19 @@ fun Galeria(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Spacer(modifier = Modifier.height(50.dp))
-        Text("📸 Cómo abrir la galería", fontSize = 26.sp)
+        Text("Cómo Enviar un contacto desde un chat de WhatsApp", fontSize = 26.sp)
         Spacer(modifier = Modifier.height(20.dp))
 
-        Text("1. Busca el siguiente ícono de la galería en tu pantalla.\n\n", fontSize = 22.sp)
+        Text("1. Busca el siguiente ícono WhatsApp en tu pantalla.\n", fontSize = 22.sp)
 
         Image(
-            painter = painterResource(id = R.drawable.ic_galeria),
-            contentDescription = "Icono de galería",
+            painter = painterResource(id = R.drawable.ic_whatsapp0),
+            contentDescription = "Icono de whatsapp",
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 8.dp)
         )
+        Spacer(modifier = Modifier.height(20.dp))
 
         Text(
             "2. Una vez encontrado, toca el ícono para abrir la aplicación. Se debería ver algo similar a lo siguiente:\n\n",
@@ -52,60 +53,70 @@ fun Galeria(
         )
 
         Image(
-            painter = painterResource(id = R.drawable.ic_galeria1),
-            contentDescription = "Galería abierta",
+            painter = painterResource(id = R.drawable.ic_whatsapp1),
+            contentDescription = "Whatsapp abierta",
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 8.dp)
         )
 
         Spacer(modifier = Modifier.height(20.dp))
-        Text("3. Desliza para ver tus fotos o videos y busca la deseada.\n\n", fontSize = 22.sp)
-
-        Text("4. Presiona la foto o video deseado, como por ejemplo esta:\n\n", fontSize = 22.sp)
+        Text("3. Busca y seleccion el Chat que quieras enviar el contacto.\n", fontSize = 22.sp)
         Image(
-            painter = painterResource(id = R.drawable.ic_galeria2),
-            contentDescription = "Ejemplo foto seleccionada",
+            painter = painterResource(id = R.drawable.ic_whatsapp13),
+            contentDescription = "Chat abierto",
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 8.dp)
         )
+        Spacer(modifier = Modifier.height(20.dp))
+
+        Text("4. Presiona el clip de la parte inferior, como se muestra en la siguiente imagen.\n", fontSize = 22.sp)
+        Image(
+            painter = painterResource(id = R.drawable.ic_whatsapp17),
+            contentDescription = "'clip de whatsapp",
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 8.dp)
+        )
+        Spacer(modifier = Modifier.height(30.dp))
 
         Text(
-            "5. Luego de seleccionar la foto o video deseado, presiona el siguiente ícono para compartir:\n\n",
-            fontSize = 22.sp
-        )
+            "5. En el menu que se despliega selecciona la opccion de contacto\n", fontSize = 22.sp)
         Image(
-            painter = painterResource(id = R.drawable.icono_enviar),
-            contentDescription = "Icono de enviar",
+            painter = painterResource(id = R.drawable.ic_whatsapp18),
+            contentDescription = "sellecionar contacto",
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 8.dp)
         )
+        Spacer(modifier = Modifier.height(30.dp))
 
-        Text("6. Presiona el ícono de WhatsApp.\n\n", fontSize = 22.sp)
+        Text("6. Buscamos el contacto que queremos enviar (Nota: Podemos seleccionar mas de 1). \n", fontSize = 22.sp)
         Image(
-            painter = painterResource(id = R.drawable.ic_galeria3),
-            contentDescription = "Icono de WhatsApp",
+            painter = painterResource(id = R.drawable.ic_whatsapp19),
+            contentDescription = "Seleccionando los contactos para enviar ",
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 8.dp)
         )
+        Spacer(modifier = Modifier.height(30.dp))
+        Text("7. Presionamos enviar y aparecera el contacto en el chat de la otra persona  \n", fontSize = 22.sp)
+        Image(
+            painter = painterResource(id = R.drawable.ic_whatsapp20),
+            contentDescription = "Chat con el contacto enviado",
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 8.dp)
+        )
+        Spacer(modifier = Modifier.height(30.dp))
 
-        Text("7. Presiona el contacto al que deseas enviar la foto o video.\n\n", fontSize = 22.sp)
-        Image(
-            painter = painterResource(id = R.drawable.ic_galeria4),
-            contentDescription = "Seleccionar contacto",
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 8.dp)
-        )
 
         Text(
             text = if (username.isNullOrEmpty())
-                "¡Felicitaciones por enviar ese recuerdo a tu contacto!"
+                "¡Felicitaciones por enviar ese contacto!"
             else
-                "¡Felicitaciones $username, por enviar ese recuerdo a tu contacto!",
+                "¡Felicitaciones $username, por enviar ese contacto!",
             fontSize = 22.sp
         )
 

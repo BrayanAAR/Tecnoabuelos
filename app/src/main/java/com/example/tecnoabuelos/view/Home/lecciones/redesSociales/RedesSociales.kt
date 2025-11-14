@@ -1,5 +1,6 @@
-package com.example.tecnoabuelos.view.Home
+package com.example.tecnoabuelos.view.Home.lecciones.redesSociales
 
+import com.example.tecnoabuelos.view.Home.HomeViewModel
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -23,7 +24,7 @@ import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreens(navController: NavHostController, homeViewModel: HomeViewModel = viewModel()) {
+fun RedesSociales(navController: NavHostController, homeViewModel: HomeViewModel = viewModel()) {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
     val temaOscuro by homeViewModel.temaOscuro.collectAsState()
@@ -32,8 +33,11 @@ fun HomeScreens(navController: NavHostController, homeViewModel: HomeViewModel =
 
 
     val opciones = listOf(
-        R.drawable.ic_redessociales to "Redes Sociales",
-        R.drawable.ic_aplicacionessistema to "Aplicaciones del Sistema",
+        R.drawable.ic_whatsapp to "WhatsApp",
+        R.drawable.ic_instagram to "Instagram",
+        R.drawable.ic_facebook to "Facebook",
+        R.drawable.ic_tiktok to "Tiktok",
+        R.drawable.ic_internet to "Internet",
     )
 
     Column(
@@ -46,43 +50,6 @@ fun HomeScreens(navController: NavHostController, homeViewModel: HomeViewModel =
         Text("TECNOABUELOS", fontSize = 32.sp)
         Spacer(modifier = Modifier.height(10.dp))
 
-        // Campo para ingresar el nombre del usuario
-        OutlinedTextField(
-            value = nombreTemp,
-            onValueChange = { nombreTemp = it },
-            label = { Text("Ingrese aquí su nombre") },
-            modifier = Modifier.fillMaxWidth(10f)
-        )
-
-        Button(
-            onClick = {
-                scope.launch {
-                    homeViewModel.setUsername(nombreTemp)
-                }
-            },
-            modifier = Modifier.padding(top = 20.dp)
-        ) {
-            Text("Guardar nombre")
-        }
-
-
-        Spacer(modifier = Modifier.height(10.dp))
-
-        // Switch para tema oscuro
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            Text("Modo oscuro", fontSize = 18.sp)
-            Switch(
-                checked = temaOscuro,
-                onCheckedChange = {
-                    scope.launch {
-                        homeViewModel.setTemaOscuro(it)
-                    }
-                },
-                modifier = Modifier.padding(start = 8.dp)
-            )
-        }
-
-        Spacer(modifier = Modifier.height(20.dp))
         Text(
             text = if (username.isNullOrEmpty())
                 "¿Qué quieres aprender hoy?"
@@ -106,8 +73,12 @@ fun HomeScreens(navController: NavHostController, homeViewModel: HomeViewModel =
                         .padding(12.dp)
                         .clickable {
                             when (texto) {
-                                "Redes Sociales"-> navController.navigate(Screens.RedesSociales.route)
-                                "Aplicaciones del Sistema"-> navController.navigate(Screens.AplicacionesSistema.route)
+                                "WhatsApp" -> navController.navigate(Screens.Whatsapp.route)
+                                "Instagram" -> navController.navigate(Screens.Instagram.route)
+                                "Facebook" -> navController.navigate(Screens.Facebook.route)
+                                "Tiktok" -> navController.navigate(Screens.Tiktok.route)
+                                "Internet" -> navController.navigate(Screens.Interner.route)
+
                             }
                         }
                 ) {
