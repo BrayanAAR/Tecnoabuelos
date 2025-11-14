@@ -13,6 +13,8 @@ sealed class Screens(val route: String) {
     object AgregarContacto : Screens("AgregarContacto")
     object EnviarContacto : Screens("EnviarContacto")
     object CambiarTamaño : Screens("CambiarTamaño")
+    object DescargaWhatsapp : Screens("DescargaWhatsapp")
+    object RealizarLlamada : Screens("RealizarLlamada")
 
     //Facebook
     object Facebook : Screens("Facebook")

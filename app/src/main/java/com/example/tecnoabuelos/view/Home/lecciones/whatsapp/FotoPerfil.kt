@@ -73,7 +73,7 @@ fun FotoPerfil(
 
         Text("4. Selecciona la opcion que dice ajustes\n", fontSize = 22.sp)
         Image(
-            painter = painterResource(id = R.drawable.ic_whatsapp2),
+            painter = painterResource(id = R.drawable.ic_whatsapp3),
             contentDescription = "Menu desplegado tres puntitos",
             modifier = Modifier
                 .fillMaxWidth()

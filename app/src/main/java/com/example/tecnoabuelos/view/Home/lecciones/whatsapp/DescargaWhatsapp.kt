@@ -1,7 +1,13 @@
 package com.example.tecnoabuelos.view.Home.lecciones.whatsapp
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
@@ -17,12 +23,13 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.example.tecnoabuelos.R
 import com.example.tecnoabuelos.view.Home.HomeViewModel
+import com.example.tecnoabuelos.view.core.navigation.Screens
 
 @Composable
-fun CambiarTamaño(
+fun DescargaWhatsapp(
     navController: NavHostController,
-    homeViewModel: HomeViewModel = viewModel()
-)  {
+     homeViewModel: HomeViewModel = viewModel()
+) {
     val username = homeViewModel.username.collectAsState().value
 
     Column(
@@ -33,14 +40,14 @@ fun CambiarTamaño(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Spacer(modifier = Modifier.height(50.dp))
-        Text("Cómo cambiar el tamaño de la letra en WhatsApp", fontSize = 26.sp)
+        Text("Cómo descargar WhatsApp", fontSize = 26.sp)
         Spacer(modifier = Modifier.height(20.dp))
 
-        Text("1. Busca el siguiente ícono WhatsApp en tu pantalla.\n", fontSize = 22.sp)
+        Text("1. Busca el siguiente ícono de la PlayStore en tu pantalla.\n", fontSize = 22.sp)
 
         Image(
-            painter = painterResource(id = R.drawable.ic_whatsapp0),
-            contentDescription = "Icono de whatsapp",
+            painter = painterResource(id = R.drawable.ic_playstore),
+            contentDescription = "Icono de Playstore",
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 8.dp)
@@ -48,62 +55,46 @@ fun CambiarTamaño(
         Spacer(modifier = Modifier.height(20.dp))
 
         Text(
-            "2. Una vez encontrado, toca el ícono para abrir la aplicación. Se debería ver algo similar a lo siguiente:\n",
+            "2. Una vez encontrado, toca el ícono para abrir la aplicación. Se debería ver algo similar a lo siguiente:\n\n",
             fontSize = 22.sp
         )
-
         Image(
-            painter = painterResource(id = R.drawable.ic_whatsapp1),
-            contentDescription = "Whatsapp abierta",
+            painter = painterResource(id = R.drawable.ic_whatsapp21),
+            contentDescription = "PlayStore abierto",
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 8.dp)
         )
 
         Spacer(modifier = Modifier.height(20.dp))
-        Text("3. Busca los tres puntitos de la parte superior. Al presionarlos debera aparecer un menu como este:\n", fontSize = 22.sp)
+        Text("3. Busca la lupa de la parte inferior y escribe 'Whatsapp'.\n", fontSize = 22.sp)
         Image(
-            painter = painterResource(id = R.drawable.ic_whatsapp2),
-            contentDescription = "Menu desplegado tres puntitos",
+            painter = painterResource(id = R.drawable.ic_whatsapp22),
+            contentDescription = "Escribiendo en el buscdor de la playstore",
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 8.dp)
         )
         Spacer(modifier = Modifier.height(20.dp))
 
-        Text("4. Selecciona la opcion que dice ajustes\n", fontSize = 22.sp)
+        Text("4. Una vez buscada la aplicacion en la PlayStore, se muestra " +
+                "la aplicacion para descargar. Luego presiona en 'Instalar' y se vera algo como se muestra en la siguiente imagen.\n", fontSize = 22.sp)
         Image(
-            painter = painterResource(id = R.drawable.ic_whatsapp3),
-            contentDescription = "Menu desplegado tres puntitos",
+            painter = painterResource(id = R.drawable.ic_whatsapp23),
+            contentDescription = "Descargando app",
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 8.dp)
         )
-        Spacer(modifier = Modifier.height(20.dp))
+        Spacer(modifier = Modifier.height(30.dp))
 
-        Text("5. Selecciona la opcion que dice ' Chats'.\n", fontSize = 22.sp)
-        Image(
-            painter = painterResource(id = R.drawable.ic_whatsapp24),
-            contentDescription = "Chats ajustes en rojo",
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 8.dp)
+        Text(
+            "5. Una vez realizado todos estos pasos ya deberia aparecer la aplicacion descargada en tu pantalla\n",
+            fontSize = 22.sp
         )
-        Spacer(modifier = Modifier.height(20.dp))
-
-        Text("6. Selecciona la opcion 'Tamaño de fuente'. \n", fontSize = 22.sp)
         Image(
-            painter = painterResource(id = R.drawable.ic_whatsapp25),
-            contentDescription = "'Tamaño de fuente' en rojo",
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 8.dp)
-        )
-        Spacer(modifier = Modifier.height(20.dp))
-        Text("7. Elige el tamaño que mas te acomode y presiona 'Ok'. \n", fontSize = 22.sp)
-        Image(
-            painter = painterResource(id = R.drawable.ic_whatsapp26),
-            contentDescription = "Opciones cambio letra",
+            painter = painterResource(id = R.drawable.ic_whatsapp0),
+            contentDescription = "Pantalla con wsp en rojo",
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 8.dp)
@@ -112,9 +103,9 @@ fun CambiarTamaño(
 
         Text(
             text = if (username.isNullOrEmpty())
-                "¡Felicitaciones por cambiar tu el tamaño de la letra!"
+                "¡Felicitaciones por descargar WhatsApp!"
             else
-                "¡Felicitaciones $username, por cambiar tu el tamaño de la letra!",
+                "¡Felicitaciones $username, por descargar WhatsApp!",
             fontSize = 22.sp
         )
 

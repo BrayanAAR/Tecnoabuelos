@@ -16,6 +16,8 @@ import com.example.tecnoabuelos.view.Home.lecciones.whatsapp.FotoPerfil
 import com.example.tecnoabuelos.view.Home.lecciones.whatsapp.AgregarContacto
 import com.example.tecnoabuelos.view.Home.lecciones.whatsapp.EnviarContacto
 import com.example.tecnoabuelos.view.Home.lecciones.whatsapp.CambiarTamaño
+import com.example.tecnoabuelos.view.Home.lecciones.whatsapp.DescargaWhatsapp
+import com.example.tecnoabuelos.view.Home.lecciones.whatsapp.RealizarLlamada
 
 
 
@@ -52,6 +54,9 @@ fun NavigationWrapper() {
         composable(Screens.Whatsapp.route) {
             Whatsapp(navController)
         }
+        composable(Screens.DescargaWhatsapp.route){
+            DescargaWhatsapp(navController)
+        }
         composable(Screens.FotoPerfil.route) {
             FotoPerfil(navController)
         }
@@ -63,6 +68,9 @@ fun NavigationWrapper() {
         }
         composable(Screens.CambiarTamaño.route) {
             CambiarTamaño(navController)
+        }
+        composable(Screens.RealizarLlamada.route) {
+            RealizarLlamada(navController)
         }
 
         //Facebook
