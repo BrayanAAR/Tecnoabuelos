@@ -49,12 +49,6 @@ fun Alarma(
         }
         Spacer(modifier = Modifier.height(30.dp))
 
-        Button(onClick = { navController.navigate(Screens.EliminarAlarma.route) },modifier = Modifier.width(300.dp)
-        ) {
-            Text("Como cambiar el foto de pantalla", fontSize = 20.sp)
-        }
-        Spacer(modifier = Modifier.height(30.dp))
-
         Button(onClick = { navController.popBackStack() },modifier = Modifier.width(300.dp)
         ) {
             Text("<- Volver al menú", fontSize = 20.sp)

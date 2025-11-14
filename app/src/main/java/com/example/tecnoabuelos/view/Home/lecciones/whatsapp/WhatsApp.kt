@@ -34,30 +34,41 @@ fun Whatsapp(navController: NavHostController,homeViewModel: HomeViewModel = vie
     ) {
         Spacer(modifier = Modifier.height(50.dp))
         Text("Whatsapp", fontSize = 24.sp)
+        Spacer(modifier = Modifier.height(30.dp))
 
+        Button(onClick = { navController.navigate(Screens.DescargaWhatsapp.route) },modifier = Modifier.width(300.dp)
+        ) {
+            Text("Como descargar WhatsApp", fontSize = 20.sp)
+        }
         Spacer(modifier = Modifier.height(30.dp))
 
         Button(onClick = { navController.navigate(Screens.FotoPerfil.route) },modifier = Modifier.width(300.dp)
         ) {
-            Text("Como cambiar la foto de perfil", fontSize = 20.sp)
+            Text("Como cambiar la foto de perfil de WhatsApp", fontSize = 20.sp)
         }
         Spacer(modifier = Modifier.height(30.dp))
 
         Button(onClick = { navController.navigate(Screens.AgregarContacto.route) },modifier = Modifier.width(300.dp)
         ) {
-            Text("Como agregar un contacto", fontSize = 20.sp)
+            Text("Como agregar un contacto desde WhatsApp", fontSize = 20.sp)
         }
         Spacer(modifier = Modifier.height(30.dp))
 
         Button(onClick = { navController.navigate(Screens.EnviarContacto.route) },modifier = Modifier.width(300.dp)
         ) {
-            Text("Como enviar un contacto", fontSize = 20.sp)
+            Text("Como enviar un contacto por WhatsApp", fontSize = 20.sp)
         }
         Spacer(modifier = Modifier.height(30.dp))
 
         Button(onClick = { navController.navigate(Screens.CambiarTamaño.route) },modifier = Modifier.width(300.dp)
         ) {
-            Text("Como cambiar el tamaño de la letra", fontSize = 20.sp)
+            Text("Como cambiar el tamaño de la letra en WhatsApp", fontSize = 20.sp)
+        }
+        Spacer(modifier = Modifier.height(30.dp))
+
+        Button(onClick = { navController.navigate(Screens.RealizarLlamada.route) },modifier = Modifier.width(300.dp)
+        ) {
+            Text("Como realizar una llamada por WhatsApp", fontSize = 20.sp)
         }
         Spacer(modifier = Modifier.height(30.dp))
 
