@@ -9,9 +9,17 @@ import com.example.tecnoabuelos.view.Home.lecciones.galeria.Galeria
 import com.example.tecnoabuelos.view.Home.lecciones.alarma.Alarma
 import com.example.tecnoabuelos.view.Home.lecciones.alarma.EliminarAlarma
 import com.example.tecnoabuelos.view.Home.lecciones.alarma.ProgrmarAlarma
+import com.example.tecnoabuelos.view.Home.lecciones.redesSociales.RedesSociales
+import com.example.tecnoabuelos.view.Home.lecciones.aplicacionesSistema.AplicacionesSistema
+import com.example.tecnoabuelos.view.Home.lecciones.whatsapp.Whatsapp
+import com.example.tecnoabuelos.view.Home.lecciones.whatsapp.FotoPerfil
+import com.example.tecnoabuelos.view.Home.lecciones.whatsapp.AgregarContacto
+import com.example.tecnoabuelos.view.Home.lecciones.whatsapp.EnviarContacto
+import com.example.tecnoabuelos.view.Home.lecciones.whatsapp.CambiarTamaño
+
+
 
 //import com.example.tecnoabuelos.view.Home.lecciones.buscador.Buscador
-//import com.example.tecnoabuelos.view.Home.lecciones.whatsapp.Whatsapp
 //import com.example.tecnoabuelos.view.Home.lecciones.intagram.Instagram
 //import com.example.tecnoabuelos.view.Home.lecciones.facebook.Facebook
 //import com.example.tecnoabuelos.view.Home.lecciones.contactos.Contactos
@@ -28,15 +36,64 @@ fun NavigationWrapper() {
         navController = navController,
         startDestination = Screens.Home.route
     ) {
-        // Pantalla de inicio (Home)
+        // ********************** Pantalla de inicio **********************
         composable(Screens.Home.route) {
             HomeScreens(navController)
         }
+        composable(Screens.RedesSociales.route) {
+            RedesSociales(navController)
+        }
+        composable(Screens.AplicacionesSistema.route) {
+            AplicacionesSistema(navController)
+        }
 
-        // Lecciones
+        //********************** Redes Sociales **********************
+        //Wsp
+        composable(Screens.Whatsapp.route) {
+            Whatsapp(navController)
+        }
+        composable(Screens.FotoPerfil.route) {
+            FotoPerfil(navController)
+        }
+        composable(Screens.AgregarContacto.route) {
+            AgregarContacto(navController)
+        }
+        composable(Screens.EnviarContacto.route) {
+            EnviarContacto(navController)
+        }
+        composable(Screens.CambiarTamaño.route) {
+            CambiarTamaño(navController)
+        }
+
+        //Facebook
+        composable(Screens.Facebook.route) {
+            //Facebook(navController)
+        }
+
+        //Instagram
+        composable(Screens.Instagram.route) {
+            //Instagram(navController)
+        }
+
+        //Tiktok
+        composable(Screens.Tiktok.route) {
+            //Tiktok(navController)
+        }
+
+        //Internet
+        composable(Screens.Interner.route) {
+            //Interner(navController)
+        }
+
+
+
+        //********************** Aplicaciones del sistema **********************
+        //Galeria
         composable(Screens.Galeria.route) {
             Galeria(navController)
         }
+
+        //Alarma
         composable(Screens.Alarma.route) {
             Alarma(navController)
         }
@@ -46,32 +103,30 @@ fun NavigationWrapper() {
         composable(Screens.EliminarAlarma.route) {
             EliminarAlarma(navController)
         }
-        composable(Screens.Buscador.route) {
+
+        //Buscador
+        //composable(Screens.Buscador.route) {
             //Buscador(navController)
-        }
-        composable(Screens.Whatsapp.route) {
-            //Whatsapp(navController)
-        }
-        composable(Screens.Instagram.route) {
-            //Instagram(navController)
-        }
-        composable(Screens.Facebook.route) {
-            //Facebook(navController)
-        }
+        //}
+
+        //Contacto
         composable(Screens.Contactos.route) {
             //Contactos(navController)
         }
+
+        //Camara
         composable(Screens.Camara.route) {
             //Camara(navController)
         }
+
+        //sonidos
         composable(Screens.Sonido.route) {
             //Sonido(navController)
         }
+
+        //Notificaciones
         composable(Screens.Notificaciones.route) {
             //Notificaciones(navController)
-        }
-        composable(Screens.Interner.route) {
-            //Interner(navController)
         }
     }
 }

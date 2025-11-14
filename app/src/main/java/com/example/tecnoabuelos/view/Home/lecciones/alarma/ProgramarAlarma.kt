@@ -37,7 +37,7 @@ fun ProgrmarAlarma(
             .padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Spacer(modifier = Modifier.height(30.dp))
+        Spacer(modifier = Modifier.height(50.dp))
         Text("Como colocar la Alarma", fontSize = 26.sp)
         Spacer(modifier = Modifier.height(20.dp))
 
