@@ -26,11 +26,16 @@ import com.example.tecnoabuelos.view.Home.lecciones.instagram.HistoriasInstagram
 import com.example.tecnoabuelos.view.Home.lecciones.instagram.BuscadorInstagram
 import com.example.tecnoabuelos.view.Home.lecciones.instagram.PublicarInstagram
 import com.example.tecnoabuelos.view.Home.lecciones.instagram.CrearCuentaInstagram
+import com.example.tecnoabuelos.view.Home.lecciones.facebook.Facebook
+import com.example.tecnoabuelos.view.Home.lecciones.facebook.DescargarFacebook
+import com.example.tecnoabuelos.view.Home.lecciones.facebook.CrearCuentaFacebook
+import com.example.tecnoabuelos.view.Home.lecciones.facebook.NavegacionBasicaFacebook
+import com.example.tecnoabuelos.view.Home.lecciones.facebook.Facebook
+import com.example.tecnoabuelos.view.Home.lecciones.facebook.Facebook
+
 
 
 //import com.example.tecnoabuelos.view.Home.lecciones.buscador.Buscador
-
-//import com.example.tecnoabuelos.view.Home.lecciones.facebook.Facebook
 //import com.example.tecnoabuelos.view.Home.lecciones.contactos.Contactos
 //import com.example.tecnoabuelos.view.Home.lecciones.camara.Camara
 //import com.example.tecnoabuelos.view.Home.lecciones.sonido.Sonido
@@ -82,7 +87,16 @@ fun NavigationWrapper() {
 
         //Facebook
         composable(Screens.Facebook.route) {
-            //Facebook(navController)
+            Facebook(navController)
+        }
+        composable(Screens.DescargarFacebook.route) {
+            DescargarFacebook(navController)
+        }
+        composable(Screens.CrearCuentaFacebook.route) {
+            CrearCuentaFacebook(navController)
+        }
+        composable(Screens.NavegacionBasicaFacebook.route) {
+            NavegacionBasicaFacebook(navController)
         }
 
         //Instagram

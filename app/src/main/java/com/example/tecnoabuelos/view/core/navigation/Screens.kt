@@ -18,6 +18,12 @@ sealed class Screens(val route: String) {
 
     //Facebook
     object Facebook : Screens("Facebook")
+    object DescargarFacebook : Screens("DescargarFacebook")
+    object CrearCuentaFacebook : Screens("CrearCuentaFacebook")
+    object NavegacionBasicaFacebook : Screens("NavegacionBasicaFacebook")
+    // object Facebook : Screens("Facebook")
+    // object Facebook : Screens("Facebook")
+    // object Facebook : Screens("Facebook")
 
     //Instagram
     object Instagram : Screens("Instagram")
