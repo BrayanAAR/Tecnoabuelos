@@ -73,9 +73,9 @@ fun RedesSociales(navController: NavHostController, homeViewModel: HomeViewModel
 
             Text(
                 text = if (username.isNullOrEmpty())
-                    "Elige qué red social quieres aprender:"
+                    "Presiona la red social que deseas aprender:"
                 else
-                    "$username, elige qué red social quieres aprender:",
+                    "$username, presiona la red social que deseas aprender:",
                 style = headlineSmallStyle,
                 modifier = Modifier.fillMaxWidth()
             )

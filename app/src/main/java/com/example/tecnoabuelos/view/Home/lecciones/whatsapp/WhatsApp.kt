@@ -1,81 +1,104 @@
 package com.example.tecnoabuelos.view.Home.lecciones.whatsapp
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Button
-import androidx.compose.material3.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
-import com.example.tecnoabuelos.R
 import com.example.tecnoabuelos.view.Home.HomeViewModel
 import com.example.tecnoabuelos.view.core.navigation.Screens
 
-
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Whatsapp(navController: NavHostController,homeViewModel: HomeViewModel = viewModel()
-) {
-    val username = homeViewModel.username.collectAsState().value
+fun Whatsapp(navController: NavHostController, homeViewModel: HomeViewModel = viewModel()) {
+    val username by homeViewModel.username.collectAsState()
+    val headlineSmallStyle = MaterialTheme.typography.headlineSmall
+    val titleLargeStyle = MaterialTheme.typography.titleLarge
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .verticalScroll(rememberScrollState())
-            .padding(24.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Spacer(modifier = Modifier.height(50.dp))
-        Text("Whatsapp", fontSize = 24.sp)
-        Spacer(modifier = Modifier.height(30.dp))
-
-        Button(onClick = { navController.navigate(Screens.DescargaWhatsapp.route) },modifier = Modifier.width(300.dp)
-        ) {
-            Text("Como descargar WhatsApp", fontSize = 20.sp)
+    Scaffold(
+        topBar = {
+            CenterAlignedTopAppBar(
+                title = {
+                    Text("WhatsApp", style = headlineSmallStyle)
+                },
+                navigationIcon = {
+                    IconButton(onClick = { navController.popBackStack() }) {
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                            contentDescription = "Volver al menú anterior",
+                            modifier = Modifier.size(32.dp)
+                        )
+                    }
+                },
+                colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.primaryContainer,
+                    titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer
+                )
+            )
         }
-        Spacer(modifier = Modifier.height(30.dp))
-
-        Button(onClick = { navController.navigate(Screens.FotoPerfil.route) },modifier = Modifier.width(300.dp)
+    ) { paddingValues ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(paddingValues)
+                .verticalScroll(rememberScrollState())
+                .padding(horizontal = 24.dp, vertical = 16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text("Como cambiar la foto de perfil de WhatsApp", fontSize = 20.sp)
-        }
-        Spacer(modifier = Modifier.height(30.dp))
 
-        Button(onClick = { navController.navigate(Screens.AgregarContacto.route) },modifier = Modifier.width(300.dp)
-        ) {
-            Text("Como agregar un contacto desde WhatsApp", fontSize = 20.sp)
-        }
-        Spacer(modifier = Modifier.height(30.dp))
+            if (!username.isNullOrEmpty()) {
+                Text(
+                    text = "$username, elige una lección:",
+                    style = headlineSmallStyle.copy(fontSize = titleLargeStyle.fontSize),
+                    modifier = Modifier.fillMaxWidth()
+                )
+                Spacer(modifier = Modifier.height(20.dp))
+            }
+            ButtonLesson(navController, Screens.DescargaWhatsapp.route, "Cómo descargar WhatsApp", titleLargeStyle)
+            ButtonLesson(navController, Screens.FotoPerfil.route, "Cómo cambiar la foto de perfil", titleLargeStyle)
+            ButtonLesson(navController, Screens.AgregarContacto.route, "Cómo agregar un contacto", titleLargeStyle)
+            ButtonLesson(navController, Screens.EnviarContacto.route, "Cómo enviar un contacto", titleLargeStyle)
+            ButtonLesson(navController, Screens.CambiarTamaño.route, "Cómo cambiar el tamaño de la letra", titleLargeStyle)
+            ButtonLesson(navController, Screens.RealizarLlamada.route, "Cómo realizar una llamada", titleLargeStyle)
 
-        Button(onClick = { navController.navigate(Screens.EnviarContacto.route) },modifier = Modifier.width(300.dp)
-        ) {
-            Text("Como enviar un contacto por WhatsApp", fontSize = 20.sp)
-        }
-        Spacer(modifier = Modifier.height(30.dp))
-
-        Button(onClick = { navController.navigate(Screens.CambiarTamaño.route) },modifier = Modifier.width(300.dp)
-        ) {
-            Text("Como cambiar el tamaño de la letra en WhatsApp", fontSize = 20.sp)
-        }
-        Spacer(modifier = Modifier.height(30.dp))
-
-        Button(onClick = { navController.navigate(Screens.RealizarLlamada.route) },modifier = Modifier.width(300.dp)
-        ) {
-            Text("Como realizar una llamada por WhatsApp", fontSize = 20.sp)
-        }
-        Spacer(modifier = Modifier.height(30.dp))
-
-
-        Button(onClick = { navController.popBackStack() },modifier = Modifier.width(300.dp)
-        ) {
-            Text("<- Volver al menú", fontSize = 20.sp)
+            Spacer(modifier = Modifier.height(30.dp))
+            Button(
+                onClick = { navController.popBackStack() },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .heightIn(min = 60.dp)
+            ) {
+                Text("<- VOLVER AL MENÚ", style = titleLargeStyle)
+            }
+            Spacer(modifier = Modifier.height(30.dp))
         }
     }
+}
+
+@Composable
+fun ButtonLesson(
+    navController: NavHostController,
+    route: String,
+    text: String,
+    textStyle: androidx.compose.ui.text.TextStyle
+) {
+    Button(
+        onClick = { navController.navigate(route) },
+        modifier = Modifier
+            .fillMaxWidth()
+            .heightIn(min = 70.dp),
+        contentPadding = PaddingValues(16.dp)
+    ) {
+        Text(text, style = textStyle, maxLines = 2)
+    }
+    Spacer(modifier = Modifier.height(20.dp))
 }
