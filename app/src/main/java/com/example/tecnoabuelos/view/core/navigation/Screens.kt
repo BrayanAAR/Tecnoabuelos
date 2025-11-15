@@ -21,6 +21,15 @@ sealed class Screens(val route: String) {
 
     //Instagram
     object Instagram : Screens("Instagram")
+    object DescargarInstagram : Screens("DescargarInstagram")
+    object CrearCuentaInstagram : Screens("CrearCuentaInstagram")
+    object OpcionPerfilInstagram : Screens("OpcionPerfilInstagram")
+    object MensajesInstagram : Screens("MensajesInstagram")
+    object HistoriasInstagram : Screens("HistoriasInstagram")
+    object BuscadorInstagram : Screens("BuscadorInstagram")
+    object PublicarInstagram : Screens("PublicarInstagram")
+
+
 
     //Tiktok
     object Tiktok : Screens("Tiktok")

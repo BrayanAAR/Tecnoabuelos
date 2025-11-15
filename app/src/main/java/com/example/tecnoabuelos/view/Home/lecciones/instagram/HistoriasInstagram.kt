@@ -1,4 +1,4 @@
-package com.example.tecnoabuelos.view.Home.lecciones.whatsapp
+package com.example.tecnoabuelos.view.Home.lecciones.instagram
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
@@ -22,12 +22,13 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.example.tecnoabuelos.R
 import com.example.tecnoabuelos.view.Home.HomeViewModel
+import com.example.tecnoabuelos.view.core.navigation.Screens
 
 @Composable
-fun DescargaWhatsapp(
+fun HistoriasInstagram(
     navController: NavHostController,
-     homeViewModel: HomeViewModel = viewModel()
-) {
+    homeViewModel: HomeViewModel = viewModel()
+){
     val username = homeViewModel.username.collectAsState().value
 
     Column(
@@ -37,75 +38,106 @@ fun DescargaWhatsapp(
             .padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+
         Spacer(modifier = Modifier.height(50.dp))
-        Text("Cómo descargar WhatsApp", fontSize = 26.sp)
-        Spacer(modifier = Modifier.height(20.dp))
-
-        Text("1. Busca el siguiente ícono de la PlayStore en tu pantalla.\n", fontSize = 22.sp)
-
-        Image(
-            painter = painterResource(id = R.drawable.ic_playstore),
-            contentDescription = "Icono de Playstore",
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 8.dp)
-        )
-        Spacer(modifier = Modifier.height(20.dp))
 
         Text(
-            "2. Una vez encontrado, toca el ícono para abrir la aplicación. Se debería ver algo similar a lo siguiente:\n\n",
+            "Cómo subir Historias en Instagram",
+            fontSize = 26.sp
+        )
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+
+        // Paso 1
+        Text(
+            "1. En tu pantalla principal, toca tu foto con el símbolo “+” para crear una Historia.\n",
             fontSize = 22.sp
         )
         Image(
-            painter = painterResource(id = R.drawable.ic_playstore1),
-            contentDescription = "PlayStore abierto",
+            painter = painterResource(id = R.drawable.ic_instagram26),
+            contentDescription = "Icono para crear historia",
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(vertical = 8.dp)
+                .padding(8.dp)
         )
 
         Spacer(modifier = Modifier.height(20.dp))
-        Text("3. Busca la lupa de la parte inferior y escribe 'Whatsapp'.\n", fontSize = 22.sp)
-        Image(
-            painter = painterResource(id = R.drawable.ic_whatsapp22),
-            contentDescription = "Escribiendo en el buscdor de la playstore",
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 8.dp)
-        )
-        Spacer(modifier = Modifier.height(20.dp))
 
-        Text("4. Una vez buscada la aplicacion en la PlayStore, se muestra " +
-                "la aplicacion para descargar. Luego presiona en 'Instalar' y se vera algo como se muestra en la siguiente imagen.\n", fontSize = 22.sp)
-        Image(
-            painter = painterResource(id = R.drawable.ic_playstorewhatsapp),
-            contentDescription = "Descargando app",
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 8.dp)
-        )
-        Spacer(modifier = Modifier.height(30.dp))
 
+        // Paso 2
         Text(
-            "5. Una vez realizado todos estos pasos ya deberia aparecer la aplicacion descargada en tu pantalla\n",
+            "2. Se abrirá la cámara. Puedes tomar una foto o grabar un video manteniendo presionado el botón blanco del centro.\n",
             fontSize = 22.sp
         )
         Image(
-            painter = painterResource(id = R.drawable.ic_whatsapp0),
-            contentDescription = "Pantalla con wsp en rojo",
+            painter = painterResource(id = R.drawable.ic_instagram27),
+            contentDescription = "Pantalla de cámara",
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(vertical = 8.dp)
+                .padding(8.dp)
         )
-        Spacer(modifier = Modifier.height(30.dp))
 
+        Spacer(modifier = Modifier.height(20.dp))
+
+
+        // Paso 3
+        Text(
+            "3. También puedes deslizar hacia arriba para elegir una foto o video que ya tengas en tu teléfono.\n",
+            fontSize = 22.sp
+        )
+        Image(
+            painter = painterResource(id = R.drawable.ic_instagram28),
+            contentDescription = "Galería",
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(8.dp)
+        )
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+
+        // Paso 4
+        Text(
+            "4. Puedes agregar texto, dibujos o stickers antes de publicar tu Historia.\n",
+            fontSize = 22.sp
+        )
+        Image(
+            painter = painterResource(id = R.drawable.ic_instagram29),
+            contentDescription = "Herramientas de edición",
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(8.dp)
+        )
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+
+        // Paso 5
+        Text(
+            "5. Cuando estés listo, toca “Tu historia” para publicarla. Durará 24 horas.\n",
+            fontSize = 22.sp
+        )
+        Image(
+            painter = painterResource(id = R.drawable.ic_instagram30),
+            contentDescription = "Publicar historia",
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(8.dp)
+        )
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+
+        // Mensaje final personalizable
         Text(
             text = if (username.isNullOrEmpty())
-                "¡Felicitaciones por descargar WhatsApp!"
+                "¡Excelente! Ya sabes cómo subir Historias. Ahora podrás compartir tus momentos del día de manera rápida y divertida. ¡Muy bien hecho!"
             else
-                "¡Felicitaciones $username, por descargar WhatsApp!",
+                "¡Excelente $username! Ya sabes cómo subir Historias. Ahora podrás compartir tus momentos del día de manera rápida y divertida. ¡Muy bien hecho!",
             fontSize = 22.sp
         )
+
 
         Spacer(modifier = Modifier.height(30.dp))
 
@@ -114,3 +146,4 @@ fun DescargaWhatsapp(
         }
     }
 }
+

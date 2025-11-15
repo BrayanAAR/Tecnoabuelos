@@ -18,11 +18,18 @@ import com.example.tecnoabuelos.view.Home.lecciones.whatsapp.EnviarContacto
 import com.example.tecnoabuelos.view.Home.lecciones.whatsapp.CambiarTamaño
 import com.example.tecnoabuelos.view.Home.lecciones.whatsapp.DescargaWhatsapp
 import com.example.tecnoabuelos.view.Home.lecciones.whatsapp.RealizarLlamada
-
+import com.example.tecnoabuelos.view.Home.lecciones.instagram.Instagram
+import com.example.tecnoabuelos.view.Home.lecciones.instagram.DescargarInstagram
+import com.example.tecnoabuelos.view.Home.lecciones.instagram.OpcionPerfilInstagram
+import com.example.tecnoabuelos.view.Home.lecciones.instagram.MensajesInstagram
+import com.example.tecnoabuelos.view.Home.lecciones.instagram.HistoriasInstagram
+import com.example.tecnoabuelos.view.Home.lecciones.instagram.BuscadorInstagram
+import com.example.tecnoabuelos.view.Home.lecciones.instagram.PublicarInstagram
+import com.example.tecnoabuelos.view.Home.lecciones.instagram.CrearCuentaInstagram
 
 
 //import com.example.tecnoabuelos.view.Home.lecciones.buscador.Buscador
-//import com.example.tecnoabuelos.view.Home.lecciones.intagram.Instagram
+
 //import com.example.tecnoabuelos.view.Home.lecciones.facebook.Facebook
 //import com.example.tecnoabuelos.view.Home.lecciones.contactos.Contactos
 //import com.example.tecnoabuelos.view.Home.lecciones.camara.Camara
@@ -80,7 +87,28 @@ fun NavigationWrapper() {
 
         //Instagram
         composable(Screens.Instagram.route) {
-            //Instagram(navController)
+            Instagram(navController)
+        }
+        composable(Screens.DescargarInstagram.route) {
+            DescargarInstagram(navController)
+        }
+        composable(Screens.CrearCuentaInstagram.route) {
+            CrearCuentaInstagram(navController)
+        }
+        composable(Screens.OpcionPerfilInstagram.route) {
+            OpcionPerfilInstagram(navController)
+        }
+        composable(Screens.MensajesInstagram.route) {
+            MensajesInstagram(navController)
+        }
+        composable(Screens.HistoriasInstagram.route) {
+            HistoriasInstagram(navController)
+        }
+        composable(Screens.BuscadorInstagram.route) {
+            BuscadorInstagram(navController)
+        }
+        composable(Screens.PublicarInstagram.route) {
+            PublicarInstagram(navController)
         }
 
         //Tiktok
