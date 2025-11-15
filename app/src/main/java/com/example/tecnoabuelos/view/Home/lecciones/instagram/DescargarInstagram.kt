@@ -1,4 +1,4 @@
-package com.example.tecnoabuelos.view.Home.lecciones.whatsapp
+package com.example.tecnoabuelos.view.Home.lecciones.instagram
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
@@ -24,9 +24,9 @@ import com.example.tecnoabuelos.R
 import com.example.tecnoabuelos.view.Home.HomeViewModel
 
 @Composable
-fun DescargaWhatsapp(
+fun DescargarInstagram(
     navController: NavHostController,
-     homeViewModel: HomeViewModel = viewModel()
+    homeViewModel: HomeViewModel = viewModel()
 ) {
     val username = homeViewModel.username.collectAsState().value
 
@@ -38,7 +38,7 @@ fun DescargaWhatsapp(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Spacer(modifier = Modifier.height(50.dp))
-        Text("Cómo descargar WhatsApp", fontSize = 26.sp)
+        Text("Cómo descargar Instagram", fontSize = 26.sp)
         Spacer(modifier = Modifier.height(20.dp))
 
         Text("1. Busca el siguiente ícono de la PlayStore en tu pantalla.\n", fontSize = 22.sp)
@@ -65,9 +65,9 @@ fun DescargaWhatsapp(
         )
 
         Spacer(modifier = Modifier.height(20.dp))
-        Text("3. Busca la lupa de la parte inferior y escribe 'Whatsapp'.\n", fontSize = 22.sp)
+        Text("3. Busca la lupa de la parte inferior y escribe 'Instagram'.\n", fontSize = 22.sp)
         Image(
-            painter = painterResource(id = R.drawable.ic_whatsapp22),
+            painter = painterResource(id = R.drawable.ic_playstoreinstagram1),
             contentDescription = "Escribiendo en el buscdor de la playstore",
             modifier = Modifier
                 .fillMaxWidth()
@@ -76,9 +76,9 @@ fun DescargaWhatsapp(
         Spacer(modifier = Modifier.height(20.dp))
 
         Text("4. Una vez buscada la aplicacion en la PlayStore, se muestra " +
-                "la aplicacion para descargar. Luego presiona en 'Instalar' y se vera algo como se muestra en la siguiente imagen.\n", fontSize = 22.sp)
+                "la aplicacion para descargar. Luego presiona en 'Instalar' como se muestra en la siguiente imagen.\n", fontSize = 22.sp)
         Image(
-            painter = painterResource(id = R.drawable.ic_playstorewhatsapp),
+            painter = painterResource(id = R.drawable.ic_playstoreinstagram2),
             contentDescription = "Descargando app",
             modifier = Modifier
                 .fillMaxWidth()
@@ -91,7 +91,7 @@ fun DescargaWhatsapp(
             fontSize = 22.sp
         )
         Image(
-            painter = painterResource(id = R.drawable.ic_whatsapp0),
+            painter = painterResource(id = R.drawable.ic_instagram0),
             contentDescription = "Pantalla con wsp en rojo",
             modifier = Modifier
                 .fillMaxWidth()
