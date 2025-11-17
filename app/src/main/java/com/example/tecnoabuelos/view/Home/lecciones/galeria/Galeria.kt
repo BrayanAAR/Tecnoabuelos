@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -24,6 +25,7 @@ fun Galeria(
     homeViewModel: HomeViewModel = viewModel()
 ) {
     val username = homeViewModel.username.collectAsState().value
+    val headlineSmallStyle = MaterialTheme.typography.headlineSmall
 
     Column(
         modifier = Modifier
@@ -33,7 +35,7 @@ fun Galeria(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Spacer(modifier = Modifier.height(50.dp))
-        Text("📸 Cómo abrir la galería", fontSize = 26.sp)
+        Text("📸 Cómo abrir la galería", style=headlineSmallStyle)
         Spacer(modifier = Modifier.height(20.dp))
 
         Text("1. Busca el siguiente ícono de la galería en tu pantalla.\n\n", fontSize = 22.sp)

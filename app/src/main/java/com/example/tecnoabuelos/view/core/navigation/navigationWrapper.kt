@@ -5,12 +5,15 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.tecnoabuelos.view.Home.HomeScreens
+
+import com.example.tecnoabuelos.view.Home.lecciones.aplicacionesSistema.AplicacionesSistema
 import com.example.tecnoabuelos.view.Home.lecciones.galeria.Galeria
 import com.example.tecnoabuelos.view.Home.lecciones.alarma.Alarma
 import com.example.tecnoabuelos.view.Home.lecciones.alarma.EliminarAlarma
 import com.example.tecnoabuelos.view.Home.lecciones.alarma.ProgrmarAlarma
+
 import com.example.tecnoabuelos.view.Home.lecciones.redesSociales.RedesSociales
-import com.example.tecnoabuelos.view.Home.lecciones.aplicacionesSistema.AplicacionesSistema
+//wsp
 import com.example.tecnoabuelos.view.Home.lecciones.whatsapp.Whatsapp
 import com.example.tecnoabuelos.view.Home.lecciones.whatsapp.FotoPerfil
 import com.example.tecnoabuelos.view.Home.lecciones.whatsapp.AgregarContacto
@@ -18,6 +21,7 @@ import com.example.tecnoabuelos.view.Home.lecciones.whatsapp.EnviarContacto
 import com.example.tecnoabuelos.view.Home.lecciones.whatsapp.CambiarTamaño
 import com.example.tecnoabuelos.view.Home.lecciones.whatsapp.DescargaWhatsapp
 import com.example.tecnoabuelos.view.Home.lecciones.whatsapp.RealizarLlamada
+//insta
 import com.example.tecnoabuelos.view.Home.lecciones.instagram.Instagram
 import com.example.tecnoabuelos.view.Home.lecciones.instagram.DescargarInstagram
 import com.example.tecnoabuelos.view.Home.lecciones.instagram.OpcionPerfilInstagram
@@ -26,12 +30,16 @@ import com.example.tecnoabuelos.view.Home.lecciones.instagram.HistoriasInstagram
 import com.example.tecnoabuelos.view.Home.lecciones.instagram.BuscadorInstagram
 import com.example.tecnoabuelos.view.Home.lecciones.instagram.PublicarInstagram
 import com.example.tecnoabuelos.view.Home.lecciones.instagram.CrearCuentaInstagram
+//face
 import com.example.tecnoabuelos.view.Home.lecciones.facebook.Facebook
 import com.example.tecnoabuelos.view.Home.lecciones.facebook.DescargarFacebook
 import com.example.tecnoabuelos.view.Home.lecciones.facebook.CrearCuentaFacebook
 import com.example.tecnoabuelos.view.Home.lecciones.facebook.NavegacionBasicaFacebook
-import com.example.tecnoabuelos.view.Home.lecciones.facebook.Facebook
-import com.example.tecnoabuelos.view.Home.lecciones.facebook.Facebook
+//tiktok
+import com.example.tecnoabuelos.view.Home.lecciones.tiktok.Tiktok
+import com.example.tecnoabuelos.view.Home.lecciones.tiktok.DescargarTiktok
+import com.example.tecnoabuelos.view.Home.lecciones.tiktok.CrearCuentaTiktok
+import com.example.tecnoabuelos.view.Home.lecciones.tiktok.NavegacionBasicaTiktok
 
 
 
@@ -127,8 +135,19 @@ fun NavigationWrapper() {
 
         //Tiktok
         composable(Screens.Tiktok.route) {
-            //Tiktok(navController)
+            Tiktok(navController)
         }
+        composable(Screens.DescargarTiktok.route) {
+            DescargarTiktok(navController)
+        }
+        composable(Screens.CrearCuentaTiktok.route) {
+            CrearCuentaTiktok(navController)
+        }
+
+        composable(Screens.NavegacionBasicaTiktok.route) {
+            NavegacionBasicaTiktok(navController)
+        }
+
 
         //Internet
         composable(Screens.Interner.route) {

@@ -1,4 +1,4 @@
-package com.example.tecnoabuelos.view.Home.lecciones.facebook
+package com.example.tecnoabuelos.view.Home.lecciones.tiktok
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
@@ -25,7 +25,7 @@ import com.example.tecnoabuelos.R
 import com.example.tecnoabuelos.view.Home.HomeViewModel
 
 @Composable
-fun CrearCuentaFacebook(
+fun CrearCuentaTiktok(
     navController: NavHostController,
     homeViewModel: HomeViewModel = viewModel()
 ) {
@@ -40,7 +40,7 @@ fun CrearCuentaFacebook(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Spacer(modifier = Modifier.height(50.dp))
-        Text("Cómo crear una cuenta de Facebook", style=headlineSmallStyle)
+        Text("Cómo crear una cuenta de Tiktok", style=headlineSmallStyle)
         Spacer(modifier = Modifier.height(20.dp))
 
         Text("1. Busca el ícono de Facebook en tu pantalla.\n", fontSize = 22.sp)

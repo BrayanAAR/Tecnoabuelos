@@ -39,6 +39,9 @@ sealed class Screens(val route: String) {
 
     //Tiktok
     object Tiktok : Screens("Tiktok")
+    object DescargarTiktok : Screens("DescargarTiktok")
+    object CrearCuentaTiktok : Screens("CrearCuentaTiktok")
+    object NavegacionBasicaTiktok : Screens("NavegacionBasicaTiktok")
 
     //Internet
     object Interner : Screens("Interner")

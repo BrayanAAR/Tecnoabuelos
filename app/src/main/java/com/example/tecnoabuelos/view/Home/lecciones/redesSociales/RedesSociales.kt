@@ -34,7 +34,7 @@ fun RedesSociales(navController: NavHostController, homeViewModel: HomeViewModel
         R.drawable.ic_instagram to "Instagram",
         R.drawable.ic_facebook to "Facebook",
         R.drawable.ic_tiktok to "Tiktok",
-        R.drawable.ic_internet to "Internet",
+        //R.drawable.ic_internet to "Internet",
     )
     val headlineLargeStyle = MaterialTheme.typography.headlineLarge
     val headlineSmallStyle = MaterialTheme.typography.headlineSmall
@@ -102,7 +102,7 @@ fun RedesSociales(navController: NavHostController, homeViewModel: HomeViewModel
                                     "Instagram" -> navController.navigate(Screens.Instagram.route)
                                     "Facebook" -> navController.navigate(Screens.Facebook.route)
                                     "Tiktok" -> navController.navigate(Screens.Tiktok.route)
-                                    "Internet" -> navController.navigate(Screens.Interner.route)
+                                    //"Internet" -> navController.navigate(Screens.Interner.route)
                                 }
                             }
                     ) {

@@ -1,4 +1,5 @@
-package com.example.tecnoabuelos.view.Home.lecciones.instagram
+package com.example.tecnoabuelos.view.Home.lecciones.tiktok
+
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
@@ -25,13 +26,13 @@ import com.example.tecnoabuelos.R
 import com.example.tecnoabuelos.view.Home.HomeViewModel
 
 @Composable
-fun MensajesInstagram(
+fun NavegacionBasicaTiktok(
     navController: NavHostController,
     homeViewModel: HomeViewModel = viewModel()
-){
+) {
+
     val username = homeViewModel.username.collectAsState().value
     val headlineSmallStyle = MaterialTheme.typography.headlineSmall
-
 
     Column(
         modifier = Modifier
@@ -40,67 +41,65 @@ fun MensajesInstagram(
             .padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+
         Spacer(modifier = Modifier.height(50.dp))
-        Text("Mensajes en Instagram", style=headlineSmallStyle)
+        Text("Primera vez en Tiktok", style=headlineSmallStyle)
         Spacer(modifier = Modifier.height(20.dp))
 
-        Text(
-            "1. Para ver tus mensajes, toca el ícono de una burbuja con un rayo (arriba a la derecha).\n",
-            fontSize = 22.sp
-        )
+        Text("1. Busca el ícono de la aplicacion en la pantalla.\n", fontSize = 22.sp)
+        //ic_tiktok0
         Image(
-            painter = painterResource(id = R.drawable.ic_instagram22),
-            contentDescription = "Icono mensajes",
+            painter = painterResource(id = R.drawable.ic_tiktok0),
+            contentDescription = "Icono de inicio",
             modifier = Modifier.fillMaxWidth().padding(8.dp)
         )
+        Spacer(modifier = Modifier.height(25.dp))
 
-        Spacer(modifier = Modifier.height(20.dp))
-        Text(
-            "2. Aquí verás las conversaciones con otras personas.\n",
-            fontSize = 22.sp
-        )
+        Text("2. Una vez abierto te pedira aceptar los terminos y condiciones, le daremos en 'Aceptar y continuar' .\n", fontSize = 22.sp)
         Image(
-            painter = painterResource(id = R.drawable.ic_instagram23),
-            contentDescription = "Lista de mensajes",
+            painter = painterResource(id = R.drawable.ic_tiktok1),
+            contentDescription = "Terminos y condiciones",
             modifier = Modifier.fillMaxWidth().padding(8.dp)
         )
+        Spacer(modifier = Modifier.height(25.dp))
 
-        Spacer(modifier = Modifier.height(20.dp))
-        Text(
-            "3. Toca una conversación para abrirla. Escribe tu mensaje abajo.\n",
-            fontSize = 22.sp
-        )
+        Text("3. Ahora te preguntara si quieres recibir notificaciones de la aplicacion, tambien le daremos los permisos.\n", fontSize = 22.sp)
         Image(
-            painter = painterResource(id = R.drawable.ic_instagram24),
-            contentDescription = "Conversación abierta",
+            painter = painterResource(id = R.drawable.ic_tiktok2),
+            contentDescription = "Permiso notificaciones",
             modifier = Modifier.fillMaxWidth().padding(8.dp)
         )
+        Spacer(modifier = Modifier.height(25.dp))
 
-        Spacer(modifier = Modifier.height(20.dp))
-        Text(
-            "4. Para enviar una foto, toca el icono de la cámara dentro del chat.\n",
-            fontSize = 22.sp
-        )
-
+        Text("4. Tiktok quiere saber un poco mas de ti, por eso te pedira que tipo de contnido quieres ver, puedes seleccionar todos los que quieras.\n", fontSize = 22.sp)
         Image(
-            painter = painterResource(id = R.drawable.ic_instagram25),
-            contentDescription = "Icono de foto",
+            painter = painterResource(id = R.drawable.ic_tiktok3),
+            contentDescription = "Categorias de poreferencia",
             modifier = Modifier.fillMaxWidth().padding(8.dp)
         )
+        Spacer(modifier = Modifier.height(25.dp))
 
-        Spacer(modifier = Modifier.height(20.dp))
+        Text("5. Y con eso ya estas listo para usar Tiktok y ver todo lo que te guste.\n", fontSize = 22.sp)
+        Image(
+            painter = painterResource(id = R.drawable.ic_tiktok4),
+            contentDescription = "Home de tiktok",
+            modifier = Modifier.fillMaxWidth().padding(8.dp)
+        )
+        Spacer(modifier = Modifier.height(25.dp))
 
+        // -------- MENSAJE FINAL --------
         Text(
-            text = if (username.isNullOrEmpty())
-                "¡Muy bien! Ya sabes enviar mensajes directos. Ahora podrás conversar con tus seres queridos en cualquier momento. ¡Felicidades!"
-            else
-                "¡Felicitaciones $username, Ya sabes enviar mensajes directos. Ahora podrás conversar con tus seres queridos en cualquier momento.!",
+            text =
+                if (username.isNullOrEmpty())
+                    "¡Excelente! Ya navegar por Tiktok.¡Felicidades!"
+                else
+                    "¡Muy bien $username! Ya navegar por Tiktok.¡Felicidades!",
             fontSize = 22.sp
         )
 
         Spacer(modifier = Modifier.height(30.dp))
         Button(onClick = { navController.popBackStack() }) {
-            Text("← Volver al menú", fontSize = 20.sp)
+            Text("<- Volver al menú", fontSize = 20.sp)
         }
     }
 }

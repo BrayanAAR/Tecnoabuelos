@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -30,6 +31,7 @@ fun NavegacionBasicaFacebook(
 ) {
 
     val username = homeViewModel.username.collectAsState().value
+    val headlineSmallStyle = MaterialTheme.typography.headlineSmall
 
     Column(
         modifier = Modifier
@@ -40,12 +42,13 @@ fun NavegacionBasicaFacebook(
     ) {
 
         Spacer(modifier = Modifier.height(50.dp))
-        Text("Navegación Básica de Facebook", fontSize = 26.sp)
+        Text("Navegación Básica de Facebook", style = headlineSmallStyle)
         Spacer(modifier = Modifier.height(20.dp))
 
         // -------- PASO 1 --------
+        Text("Inicio de la aplicacion, aqui se veran todas las novedades.\n", style = headlineSmallStyle)
         Text(
-            "1. para vizualizar o para volver al inicio siempre puedes tocar el ícono de la casita en la parte inferior izquierda.\n",
+            "1. Para vizualizar o para volver al inicio siempre puedes tocar el ícono de la casita en la parte inferior izquierda.\n",
             fontSize = 22.sp
         )
         Image(
@@ -55,8 +58,12 @@ fun NavegacionBasicaFacebook(
         )
 
         Spacer(modifier = Modifier.height(25.dp))
+        Spacer(modifier = Modifier.height(20.dp))
+
 
         // -------- PASO 2 --------
+        Text("Seccion de reels, aqui veras todas las publicaciones tipo videos cortos.\n", style = headlineSmallStyle)
+
         Text(
             "2. Para ver contenido, presiona el icono de pelicula en la barra inferior.\n",
             fontSize = 22.sp
@@ -68,8 +75,12 @@ fun NavegacionBasicaFacebook(
         )
 
         Spacer(modifier = Modifier.height(25.dp))
+        Spacer(modifier = Modifier.height(20.dp))
+
 
         // -------- PASO 3 --------
+        Text("Solicitudes de amistades.\n", style = headlineSmallStyle)
+
         Text(
             "3. Para ver la solicitud de amistad de las demas persona presina las dos personas" +
                     " juntas que se encuentran en el medio en la parte inferior.\n",
@@ -100,9 +111,13 @@ fun NavegacionBasicaFacebook(
             modifier = Modifier.fillMaxWidth().padding(8.dp)
         )
         Spacer(modifier = Modifier.height(25.dp))
+        Spacer(modifier = Modifier.height(20.dp))
+
 
 
         // -------- PASO 4 --------
+        Text("Perfil del usuario, aqui podras ver tus publicaciones y la informacion que compartes con otros .\n", style = headlineSmallStyle)
+
         Text(
             "4. Para visualizar su perfil presiona el botón de la parte inferior de una persona en un circulo.\n",
             fontSize = 22.sp
@@ -114,9 +129,13 @@ fun NavegacionBasicaFacebook(
         )
 
         Spacer(modifier = Modifier.height(25.dp))
+        Spacer(modifier = Modifier.height(20.dp))
+
 
 
         // -------- PASO 5 --------
+        Text("Notificaciones.\n", fontSize = 26.sp)
+
         Text(
             "5. Para revisar las notificaciones, presiona en la campanita de la parte inferior.\n",
             fontSize = 22.sp

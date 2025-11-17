@@ -1,4 +1,4 @@
-package com.example.tecnoabuelos.view.Home.lecciones.alarma
+package com.example.tecnoabuelos.view.Home.lecciones.tiktok
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
@@ -25,7 +25,7 @@ import com.example.tecnoabuelos.R
 import com.example.tecnoabuelos.view.Home.HomeViewModel
 
 @Composable
-fun EliminarAlarma(
+fun DescargarTiktok(
     navController: NavHostController,
     homeViewModel: HomeViewModel = viewModel()
 ) {
@@ -40,37 +40,14 @@ fun EliminarAlarma(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Spacer(modifier = Modifier.height(50.dp))
-        Text("Como eliminar una la Alarma", style=headlineSmallStyle)
+        Text("Cómo descargar Tiktok", style=headlineSmallStyle)
         Spacer(modifier = Modifier.height(20.dp))
 
-        Text("1. Busca el siguiente ícono en tu pantalla, Puede decir Reloj o Alarma.\n", fontSize = 22.sp)
+        Text("1. Busca el siguiente ícono de la PlayStore en tu pantalla.\n", fontSize = 22.sp)
 
         Image(
-            painter = painterResource(id = R.drawable.ic_reloj1),
-            contentDescription = "Icono de reloj",
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 8.dp)
-        )
-        Spacer(modifier = Modifier.height(20.dp))
-        Text(
-            "2. Una vez encontrado, toca el ícono para abrir la aplicación. Se debería ver algo similar a lo siguiente:\n",
-            fontSize = 22.sp
-        )
-
-        Image(
-            painter = painterResource(id = R.drawable.ic_reloj2),
-            contentDescription = "Reloj abierta",
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 8.dp)
-        )
-        Spacer(modifier = Modifier.height(20.dp))
-
-        Text("3. Manten presionado sobre la alrma que deseas eliminar. Se vera algo similar a esto: \n", fontSize = 22.sp)
-        Image(
-            painter = painterResource(id = R.drawable.ic_reloj9),
-            contentDescription = "Una alarma seleccionada",
+            painter = painterResource(id = R.drawable.ic_playstore),
+            contentDescription = "Icono de Playstore",
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 8.dp)
@@ -78,42 +55,57 @@ fun EliminarAlarma(
         Spacer(modifier = Modifier.height(20.dp))
 
         Text(
-            "4. En este paso puedes selecionar mas alarmas que deseas eliminar\n",
+            "2. Una vez encontrado, toca el ícono para abrir la aplicación. Se debería ver algo similar a lo siguiente:\n\n",
             fontSize = 22.sp
         )
         Image(
-            painter = painterResource(id = R.drawable.ic_reloj10),
-            contentDescription = "Mas de una alarma seleccionada",
+            painter = painterResource(id = R.drawable.ic_playstore1),
+            contentDescription = "PlayStore abierto",
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 8.dp)
         )
 
         Spacer(modifier = Modifier.height(20.dp))
-        Text("5. Una vez seleccionada la(s) Alarama(s) deseada.Puedes presionar eliminar en la parte inferior de la pantalla\n", fontSize = 22.sp)
+        Text("3. Busca la lupa de la parte inferior y escribe 'Tiktok'.\n", fontSize = 22.sp)
         Image(
-            painter = painterResource(id = R.drawable.ic_reloj11),
-            contentDescription = "Boton de eliminar alarma",
+            painter = painterResource(id = R.drawable.ic_playstoretiktok1),
+            contentDescription = "Escribiendo en el buscdor de la playstore",
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 8.dp)
         )
         Spacer(modifier = Modifier.height(20.dp))
-        Text("Y ya se habran eliminado las alarmas \n", fontSize = 22.sp)
+
+        Text("4. Una vez buscada la aplicacion en la PlayStore, se muestra " +
+                "la aplicacion para descargar. Luego presiona en 'Instalar' como se muestra en la siguiente imagen.\n", fontSize = 22.sp)
         Image(
-            painter = painterResource(id = R.drawable.ic_reloj12),
-            contentDescription = "aplicacion sin dos alarmas",
+            painter = painterResource(id = R.drawable.ic_playstoretiktok2),
+            contentDescription = "Descargando app",
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 8.dp)
         )
-        Spacer(modifier = Modifier.height(20.dp))
+        Spacer(modifier = Modifier.height(30.dp))
+
+        Text(
+            "5. Una vez realizado todos estos pasos ya deberia aparecer la aplicacion descargada en tu pantalla\n",
+            fontSize = 22.sp
+        )
+        Image(
+            painter = painterResource(id = R.drawable.ic_tiktok0),
+            contentDescription = "Pantalla con wsp en rojo",
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 8.dp)
+        )
+        Spacer(modifier = Modifier.height(30.dp))
 
         Text(
             text = if (username.isNullOrEmpty())
-                "¡Felicitaciones por finalizar y elimar una Alarma!"
+                "¡Felicitaciones por descargar Tiktok!"
             else
-                "¡Felicitaciones $username, por finalizar y eliminar una Alarma!",
+                "¡Felicitaciones $username, por descargar Tiktok!",
             fontSize = 22.sp
         )
 
@@ -124,4 +116,3 @@ fun EliminarAlarma(
         }
     }
 }
-
