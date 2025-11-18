@@ -31,7 +31,7 @@ fun AplicacionesSistema(navController: NavHostController, homeViewModel: HomeVie
     val opciones = listOf(
         R.drawable.ic_galeria to "Galeria",
         R.drawable.ic_reloj to "Reloj",
-        R.drawable.ic_camara to "Camara",
+        R.drawable.ic_contactos to "Contacto",
 
     )
     val headlineLargeStyle = MaterialTheme.typography.headlineLarge
@@ -42,7 +42,7 @@ fun AplicacionesSistema(navController: NavHostController, homeViewModel: HomeVie
         topBar = {
             CenterAlignedTopAppBar(
                 title = {
-                    Text("Redes Sociales", style = headlineSmallStyle)
+                    Text("Aplicaciones del sistema", style = headlineSmallStyle)
                 },
                 navigationIcon = {
                     IconButton(onClick = { navController.popBackStack() }) {
@@ -71,9 +71,9 @@ fun AplicacionesSistema(navController: NavHostController, homeViewModel: HomeVie
 
             Text(
                 text = if (username.isNullOrEmpty())
-                    "Elige qué red social quieres aprender:"
+                    "Elige qué aplicacion quieres aprender:"
                 else
-                    "$username, elige qué red social quieres aprender:",
+                    "$username, elige qué aplicacion quieres aprender:",
                 style = headlineSmallStyle,
                 modifier = Modifier.fillMaxWidth()
             )
@@ -98,7 +98,7 @@ fun AplicacionesSistema(navController: NavHostController, homeViewModel: HomeVie
                                 when (texto) {
                                     "Galeria" -> navController.navigate(Screens.Galeria.route)
                                     "Reloj" -> navController.navigate(Screens.Alarma.route)
-                                    "Camara" -> navController.navigate(Screens.Camara.route)
+                                    "Contacto" -> navController.navigate(Screens.Telefono.route)
                                 }
                             }
                     ) {

@@ -11,6 +11,10 @@ import com.example.tecnoabuelos.view.Home.lecciones.galeria.Galeria
 import com.example.tecnoabuelos.view.Home.lecciones.alarma.Alarma
 import com.example.tecnoabuelos.view.Home.lecciones.alarma.EliminarAlarma
 import com.example.tecnoabuelos.view.Home.lecciones.alarma.ProgrmarAlarma
+import com.example.tecnoabuelos.view.Home.lecciones.telefono.Telefono
+import com.example.tecnoabuelos.view.Home.lecciones.telefono.NavegacionTelefono
+
+
 
 import com.example.tecnoabuelos.view.Home.lecciones.redesSociales.RedesSociales
 //wsp
@@ -42,12 +46,6 @@ import com.example.tecnoabuelos.view.Home.lecciones.tiktok.CrearCuentaTiktok
 import com.example.tecnoabuelos.view.Home.lecciones.tiktok.NavegacionBasicaTiktok
 
 
-
-//import com.example.tecnoabuelos.view.Home.lecciones.buscador.Buscador
-//import com.example.tecnoabuelos.view.Home.lecciones.contactos.Contactos
-//import com.example.tecnoabuelos.view.Home.lecciones.camara.Camara
-//import com.example.tecnoabuelos.view.Home.lecciones.sonido.Sonido
-//import com.example.tecnoabuelos.view.Home.lecciones.notificaciones.Notificaciones
 //import com.example.tecnoabuelos.view.Home.lecciones.internet.Interner
 
 @Composable
@@ -178,9 +176,12 @@ fun NavigationWrapper() {
             //Buscador(navController)
         //}
 
-        //Contacto
-        composable(Screens.Contactos.route) {
-            //Contactos(navController)
+        //Telefono
+        composable(Screens.Telefono.route) {
+            Telefono(navController)
+        }
+        composable(Screens.NavegacionTelefono.route) {
+            NavegacionTelefono(navController)
         }
 
         //Camara

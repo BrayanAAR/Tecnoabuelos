@@ -59,8 +59,9 @@ sealed class Screens(val route: String) {
 
     //object Buscador : Screens("Buscador")
 
-    //Contacto
-    object Contactos : Screens("Contactos")
+    //Telefono
+    object Telefono : Screens("Telefono")
+    object NavegacionTelefono : Screens("NavegacionTelefono")
 
     //Camara
     object Camara : Screens("Camara")
