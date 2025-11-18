@@ -61,7 +61,6 @@ fun NavegacionBasicaTiktok(
             contentDescription = "Terminos y condiciones",
             modifier = Modifier.fillMaxWidth().padding(8.dp)
         )
-        Spacer(modifier = Modifier.height(25.dp))
 
         Text("3. Ahora te preguntara si quieres recibir notificaciones de la aplicacion, tambien le daremos los permisos.\n", fontSize = 22.sp)
         Image(
@@ -96,6 +95,55 @@ fun NavegacionBasicaTiktok(
                     "¡Muy bien $username! Ya navegar por Tiktok.¡Felicidades!",
             fontSize = 22.sp
         )
+
+        Spacer(modifier = Modifier.height(50.dp))
+        Text("Navegacion basica de Tiktok", style=headlineSmallStyle)
+        Spacer(modifier = Modifier.height(20.dp))
+
+        Text("Busca el ícono de la casita en la esquina inferior de la pantalla.\n", fontSize = 22.sp)
+        Text("aqui veras las ultimas publicacions sugeridas para ti.\n", fontSize = 22.sp)
+
+        Image(
+            painter = painterResource(id = R.drawable.ic_tiktok14),
+            contentDescription = "Icono de inicio",
+            modifier = Modifier.fillMaxWidth().padding(8.dp)
+        )
+        Spacer(modifier = Modifier.height(25.dp))
+
+        Text("El icono de las dos personas juntas te muestras los videos de amigos o de la gente que sigues .\n", fontSize = 22.sp)
+        Image(
+            painter = painterResource(id = R.drawable.ic_tiktok15),
+            contentDescription = "icono amigos",
+            modifier = Modifier.fillMaxWidth().padding(8.dp)
+        )
+
+        Text(" El + que se encuentra en la parte del medio, podras crear un video de tiktok, Puedes ser el nuevo influencer .\n", fontSize = 22.sp)
+
+        Image(
+            painter = painterResource(id = R.drawable.ic_tiktok18),
+            contentDescription = "crear tiktok",
+            modifier = Modifier.fillMaxWidth().padding(8.dp)
+        )
+        Spacer(modifier = Modifier.height(25.dp))
+        Image(
+            painter = painterResource(id = R.drawable.ic_tiktok16),
+            contentDescription = "crear tiktok",
+            modifier = Modifier.fillMaxWidth().padding(8.dp)
+        )
+        Spacer(modifier = Modifier.height(25.dp))
+
+        Text("En el icono de los mensajes podras ver tus converzaciones con otros usuarios.\n", fontSize = 22.sp)
+        Image(
+            painter = painterResource(id = R.drawable.ic_tiktok17),
+            contentDescription = "mensajeria de tiktok ",
+            modifier = Modifier.fillMaxWidth().padding(8.dp)
+        )
+        Spacer(modifier = Modifier.height(25.dp))
+
+
+
+
+
 
         Spacer(modifier = Modifier.height(30.dp))
         Button(onClick = { navController.popBackStack() }) {

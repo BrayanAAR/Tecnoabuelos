@@ -43,53 +43,65 @@ fun CrearCuentaTiktok(
         Text("Cómo crear una cuenta de Tiktok", style=headlineSmallStyle)
         Spacer(modifier = Modifier.height(20.dp))
 
-        Text("1. Busca el ícono de Facebook en tu pantalla.\n", fontSize = 22.sp)
+        Text("1. Busca el ícono de tiktok en tu pantalla.\n", fontSize = 22.sp)
 
         Image(
-            painter = painterResource(id = R.drawable.ic_facebook0),
-            contentDescription = "Icono de Facebook",
+            painter = painterResource(id = R.drawable.ic_tiktok0),
+            contentDescription = "Icono de Tiktok",
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 8.dp)
         )
         Spacer(modifier = Modifier.height(20.dp))
 
-        Text(
-            "2. Una vez encontrado, toca el ícono para abrir la aplicación. Se debería ver algo similar a lo siguiente:\n\n",
-            fontSize = 22.sp
-        )
+        Text("2. Una vez encontrado, toca el ícono para abrir la aplicación. Se debería ver algo similar a lo siguiente:\n\n", fontSize = 22.sp)
+        Text("-Aqui mismo presiona el logo del perfil para dar inicio a la creracion de la cuenta\n\n", fontSize = 22.sp)
+
         Image(
-            painter = painterResource(id = R.drawable.ic_facebook1),
-            contentDescription = "Primera vista instagram abierto",
+            painter = painterResource(id = R.drawable.ic_tiktok5),
+            contentDescription = "Primera vista Tikttok abierto",
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 8.dp)
         )
 
         Spacer(modifier = Modifier.height(20.dp))
-        Text("3. Presion en 'Crear cuenta nueva' la parte inferior.\n", fontSize = 22.sp)
+        Text("3. Una vez abierto la seccion del perfil al no tener cuenta nos pedira ingresar una o crear." +
+                "Por esto mismo, presionaremos en registrarse que se encuetra en la parte de abajo.\n", fontSize = 22.sp)
         Image(
-            painter = painterResource(id = R.drawable.ic_facebook2),
-            contentDescription = "Escribiendo en el buscdor de la playstore",
+            painter = painterResource(id = R.drawable.ic_tiktok6),
+            contentDescription = "registrarse toktok",
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 8.dp)
         )
         Spacer(modifier = Modifier.height(20.dp))
 
-        Text("4. Presionamos sobre el boton azul para comenzar.\n", fontSize = 22.sp)
+        Text("4. En este caso nos registraremos con el numero de telefono, pero puedes elegir la opcion que te acomode, los pasos seria iguales.\n", fontSize = 22.sp)
         Image(
-            painter = painterResource(id = R.drawable.ic_facebook3),
-            contentDescription = "Comenzr de facebook",
+            painter = painterResource(id = R.drawable.ic_tiktok7),
+            contentDescription = "ingresar numero",
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 8.dp)
         )
         Spacer(modifier = Modifier.height(30.dp))
-        Text("Si te pide permisos para acceder a tus contactos, es para que sea mas facil encontrar despues a tus conocidos.\n", fontSize = 22.sp)
+        Text("le damos a continuar como se muestra en la imagen siguiente.\n", fontSize = 22.sp)
+
         Image(
-            painter = painterResource(id = R.drawable.ic_facebook4),
-            contentDescription = "solicitud de permisos para contactos",
+            painter = painterResource(id = R.drawable.ic_tiktok8),
+            contentDescription = "continuar con el numero",
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 8.dp)
+        )
+        Spacer(modifier = Modifier.height(30.dp))
+
+        Text("Ingresa el numero de verificacion, si usaste el numero de telefono este se ingresara automaticamente," +
+                "luego le das a 'Crear cuenta'.\n", fontSize = 22.sp)
+        Image(
+            painter = painterResource(id = R.drawable.ic_tiktok9),
+            contentDescription = "ingresar numero de verificacion",
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 8.dp)
@@ -102,7 +114,7 @@ fun CrearCuentaTiktok(
             fontSize = 22.sp
         )
         Image(
-            painter = painterResource(id = R.drawable.ic_facebook5),
+            painter = painterResource(id = R.drawable.ic_tiktok10),
             contentDescription = "Ingresar fecha de nacimiento",
             modifier = Modifier
                 .fillMaxWidth()
@@ -111,73 +123,22 @@ fun CrearCuentaTiktok(
         Spacer(modifier = Modifier.height(30.dp))
 
         Text(
-            "6. Te pedira elegir tu genero, ingresa la opcion que mas te acomode, puedes cambiarlo mas adelante.\n",
+            "6. Te pedira que ingreses una contraseña que contenga numero y un caracter especial, puedes cambiarlo mas adelante.\n",
             fontSize = 22.sp
         )
         Image(
-            painter = painterResource(id = R.drawable.ic_facebook6),
-            contentDescription = "Ingresar genero",
+            painter = painterResource(id = R.drawable.ic_tiktok11),
+            contentDescription = "Ingresar clave",
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 8.dp)
         )
         Spacer(modifier = Modifier.height(30.dp))
 
-        Text("7. Puedes crear tu cuenta usando tu número de teléfono o tu correo. En este caso la haremos con el telefono, pero los pasos son prácticamente los mismos, así que no te preocupes.\n", fontSize = 22.sp)
+        Text("7. Ingresa el usuario con el cual los demas te reconoceran.\n", fontSize = 22.sp)
         Image(
-            painter = painterResource(id = R.drawable.ic_facebook7),
-            contentDescription = "opcion para crear cuenta",
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 8.dp)
-        )
-        Spacer(modifier = Modifier.height(30.dp))
-        Text(
-            "8. Una vez ingresado el telefono o correo, deberás crear una contraseña para tu nueva cuenta\n",
-            fontSize = 22.sp
-        )
-        Image(
-            painter = painterResource(id = R.drawable.ic_facebook8),
-            contentDescription = "Crear contraseña",
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 8.dp)
-        )
-        Spacer(modifier = Modifier.height(30.dp))
-
-        Text(
-            "9. Acepta las condiciones y politicas de Facebook.\n",
-            fontSize = 22.sp
-        )
-        Image(
-            painter = painterResource(id = R.drawable.ic_facebook9),
-            contentDescription = "Aceptar condiciones y politicas",
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 8.dp)
-        )
-        Spacer(modifier = Modifier.height(30.dp))
-
-        Text(
-            "10. Agrega una foto desde la galeria o una que te tomes en el momento, esta foto sera" +
-                    " visible para los demas usuarios, No te preocupes, despues se puede cambiar.\n",
-            fontSize = 22.sp
-        )
-        Image(
-            painter = painterResource(id = R.drawable.ic_facebook10),
-            contentDescription = "Elegir foto de perfil",
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 8.dp)
-        )
-        Spacer(modifier = Modifier.height(30.dp))
-        Text(
-            " De ser necesario dale los permisos para poder acceder a tus fotos de la galeria\n",
-            fontSize = 22.sp
-        )
-        Image(
-            painter = painterResource(id = R.drawable.ic_facebook11),
-            contentDescription = "permisos Elegir foto de perfil",
+            painter = painterResource(id = R.drawable.ic_tiktok12),
+            contentDescription = "ingresar apodo",
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 8.dp)
@@ -186,11 +147,19 @@ fun CrearCuentaTiktok(
 
 
         Text(
-            "11.Con eso terminamos de crear la cuenta y ya puedes usar Facebook.\n",
+            "8.Con eso terminamos de crear la cuenta y puedes revisar tu perfil en el icono de la esquina inferior derecha.\n",
             fontSize = 22.sp
         )
         Image(
-            painter = painterResource(id = R.drawable.ic_facebook12),
+            painter = painterResource(id = R.drawable.ic_tiktok5),
+            contentDescription = "Fin ccreacion de perfil",
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 8.dp)
+        )
+        Spacer(modifier = Modifier.height(30.dp))
+        Image(
+            painter = painterResource(id = R.drawable.ic_tiktok13),
             contentDescription = "Fin ccreacion de perfil",
             modifier = Modifier
                 .fillMaxWidth()
@@ -200,9 +169,9 @@ fun CrearCuentaTiktok(
 
         Text(
             text = if (username.isNullOrEmpty())
-                "¡Felicitaciones por crear tu nueva cuenta de Facebook!"
+                "¡Felicitaciones por crear tu nueva cuenta de Tiktok!"
             else
-                "¡Felicitaciones $username, por crear tu nueva cuenta de Facebook!",
+                "¡Felicitaciones $username, por crear tu nueva cuenta de Tiktok!",
             fontSize = 22.sp
         )
 
