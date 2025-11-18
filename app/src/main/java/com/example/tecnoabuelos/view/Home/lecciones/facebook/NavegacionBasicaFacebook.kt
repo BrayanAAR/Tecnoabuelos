@@ -7,16 +7,26 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Button
+import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -24,6 +34,7 @@ import androidx.navigation.NavHostController
 import com.example.tecnoabuelos.R
 import com.example.tecnoabuelos.view.Home.HomeViewModel
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun NavegacionBasicaFacebook(
     navController: NavHostController,
@@ -33,135 +44,170 @@ fun NavegacionBasicaFacebook(
     val username = homeViewModel.username.collectAsState().value
     val headlineSmallStyle = MaterialTheme.typography.headlineSmall
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .verticalScroll(rememberScrollState())
-            .padding(24.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
+    Scaffold(
+        topBar = {
+            CenterAlignedTopAppBar(
+                title = {
+                    Text(
+                        "Conoce más de Facebook",
+                        style = headlineSmallStyle,
+                        textAlign = TextAlign.Center
+                    )
+                },
+                navigationIcon = {
+                    IconButton(onClick = { navController.popBackStack() }) {
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                            contentDescription = "Volver al menú anterior",
+                            modifier = Modifier.size(32.dp)
+                        )
+                    }
+                },
+                colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.primaryContainer,
+                    titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer
+                )
+            )
+        }
+    ) { paddingValues ->
 
-        Spacer(modifier = Modifier.height(50.dp))
-        Text("Navegación Básica de Facebook", style = headlineSmallStyle)
-        Spacer(modifier = Modifier.height(20.dp))
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .verticalScroll(rememberScrollState())
+                .padding(24.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
 
-        // -------- PASO 1 --------
-        Text("Inicio de la aplicacion, aqui se veran todas las novedades.\n", style = headlineSmallStyle)
-        Text(
-            "1. Para vizualizar o para volver al inicio siempre puedes tocar el ícono de la casita en la parte inferior izquierda.\n",
-            fontSize = 22.sp
-        )
-        Image(
-            painter = painterResource(id = R.drawable.ic_facebook13),
-            contentDescription = "Icono de inicio",
-            modifier = Modifier.fillMaxWidth().padding(8.dp)
-        )
+            Spacer(modifier = Modifier.height(70.dp))
+            Text("Navegación Básica de Facebook", style = headlineSmallStyle)
+            Spacer(modifier = Modifier.height(20.dp))
 
-        Spacer(modifier = Modifier.height(25.dp))
-        Spacer(modifier = Modifier.height(20.dp))
+            // -------- PASO 1 --------
+            Text(
+                "Inicio de la aplicacion, aqui se veran todas las novedades.\n",
+                style = headlineSmallStyle
+            )
+            Text(
+                "1. Para vizualizar o para volver al inicio siempre puedes tocar el ícono de la casita en la parte inferior izquierda.\n",
+                fontSize = 22.sp
+            )
+            Image(
+                painter = painterResource(id = R.drawable.ic_facebook13),
+                contentDescription = "Icono de inicio",
+                modifier = Modifier.fillMaxWidth().padding(8.dp)
+            )
 
-
-        // -------- PASO 2 --------
-        Text("Seccion de reels, aqui veras todas las publicaciones tipo videos cortos.\n", style = headlineSmallStyle)
-
-        Text(
-            "2. Para ver contenido, presiona el icono de pelicula en la barra inferior.\n",
-            fontSize = 22.sp
-        )
-        Image(
-            painter = painterResource(id = R.drawable.ic_facebook14),
-            contentDescription = "icono de reels",
-            modifier = Modifier.fillMaxWidth().padding(8.dp)
-        )
-
-        Spacer(modifier = Modifier.height(25.dp))
-        Spacer(modifier = Modifier.height(20.dp))
-
-
-        // -------- PASO 3 --------
-        Text("Solicitudes de amistades.\n", style = headlineSmallStyle)
-
-        Text(
-            "3. Para ver la solicitud de amistad de las demas persona presina las dos personas" +
-                    " juntas que se encuentran en el medio en la parte inferior.\n",
-            fontSize = 22.sp
-        )
-        Image(
-            painter = painterResource(id = R.drawable.ic_facebook15),
-            contentDescription = "icono de solicitud de amistad",
-            modifier = Modifier.fillMaxWidth().padding(8.dp)
-        )
-
-        Spacer(modifier = Modifier.height(25.dp))
-
-        Text(
-            "En esta misma parte si presionas la lupa de la parte superior, Podras buscar por el nombre de la persona o contenido que quieras .\n",
-            fontSize = 22.sp
-        )
-        Image(
-            painter = painterResource(id = R.drawable.ic_facebook18),
-            contentDescription = "Home Buscador  ",
-            modifier = Modifier.fillMaxWidth().padding(8.dp)
-        )
-
-        Spacer(modifier = Modifier.height(25.dp))
-        Image(
-            painter = painterResource(id = R.drawable.ic_facebook19),
-            contentDescription = "Buscador persona ",
-            modifier = Modifier.fillMaxWidth().padding(8.dp)
-        )
-        Spacer(modifier = Modifier.height(25.dp))
-        Spacer(modifier = Modifier.height(20.dp))
+            Spacer(modifier = Modifier.height(25.dp))
+            Spacer(modifier = Modifier.height(20.dp))
 
 
+            // -------- PASO 2 --------
+            Text(
+                "Seccion de reels, aqui veras todas las publicaciones tipo videos cortos.\n",
+                style = headlineSmallStyle
+            )
 
-        // -------- PASO 4 --------
-        Text("Perfil del usuario, aqui podras ver tus publicaciones y la informacion que compartes con otros .\n", style = headlineSmallStyle)
+            Text(
+                "2. Para ver contenido, presiona el icono de pelicula en la barra inferior.\n",
+                fontSize = 22.sp
+            )
+            Image(
+                painter = painterResource(id = R.drawable.ic_facebook14),
+                contentDescription = "icono de reels",
+                modifier = Modifier.fillMaxWidth().padding(8.dp)
+            )
 
-        Text(
-            "4. Para visualizar su perfil presiona el botón de la parte inferior de una persona en un circulo.\n",
-            fontSize = 22.sp
-        )
-        Image(
-            painter = painterResource(id = R.drawable.ic_facebook16),
-            contentDescription = "Botón seguir",
-            modifier = Modifier.fillMaxWidth().padding(8.dp)
-        )
-
-        Spacer(modifier = Modifier.height(25.dp))
-        Spacer(modifier = Modifier.height(20.dp))
-
-
-
-        // -------- PASO 5 --------
-        Text("Notificaciones.\n", fontSize = 26.sp)
-
-        Text(
-            "5. Para revisar las notificaciones, presiona en la campanita de la parte inferior.\n",
-            fontSize = 22.sp
-        )
-        Image(
-            painter = painterResource(id = R.drawable.ic_facebook17),
-            contentDescription = "Me gusta",
-            modifier = Modifier.fillMaxWidth().padding(8.dp)
-        )
-
-        Spacer(modifier = Modifier.height(25.dp))
+            Spacer(modifier = Modifier.height(25.dp))
+            Spacer(modifier = Modifier.height(20.dp))
 
 
-        // -------- MENSAJE FINAL --------
-        Text(
-            text =
-                if (username.isNullOrEmpty())
-                    "¡Excelente! Ya sabes usar lo básico de Facebook. Ahora puedes navegar, seguir personas y mas. ¡Felicidades!"
-                else
-                    "¡Muy bien $username! Ya sabes usar lo básico de Facebook. Ahora puedes navegar, seguir personas y mas. ¡Sigue así!",
-            fontSize = 22.sp
-        )
+            // -------- PASO 3 --------
+            Text("Solicitudes de amistades.\n", style = headlineSmallStyle)
 
-        Spacer(modifier = Modifier.height(30.dp))
-        Button(onClick = { navController.popBackStack() }) {
-            Text("<- Volver al menú", fontSize = 20.sp)
+            Text(
+                "3. Para ver la solicitud de amistad de las demas persona presina las dos personas" +
+                        " juntas que se encuentran en el medio en la parte inferior.\n",
+                fontSize = 22.sp
+            )
+            Image(
+                painter = painterResource(id = R.drawable.ic_facebook15),
+                contentDescription = "icono de solicitud de amistad",
+                modifier = Modifier.fillMaxWidth().padding(8.dp)
+            )
+
+            Spacer(modifier = Modifier.height(25.dp))
+
+            Text(
+                "En esta misma parte si presionas la lupa de la parte superior, Podras buscar por el nombre de la persona o contenido que quieras .\n",
+                fontSize = 22.sp
+            )
+            Image(
+                painter = painterResource(id = R.drawable.ic_facebook18),
+                contentDescription = "Home Buscador  ",
+                modifier = Modifier.fillMaxWidth().padding(8.dp)
+            )
+
+            Spacer(modifier = Modifier.height(25.dp))
+            Image(
+                painter = painterResource(id = R.drawable.ic_facebook19),
+                contentDescription = "Buscador persona ",
+                modifier = Modifier.fillMaxWidth().padding(8.dp)
+            )
+            Spacer(modifier = Modifier.height(25.dp))
+            Spacer(modifier = Modifier.height(20.dp))
+
+
+            // -------- PASO 4 --------
+            Text(
+                "Perfil del usuario, aqui podras ver tus publicaciones y la informacion que compartes con otros .\n",
+                style = headlineSmallStyle
+            )
+
+            Text(
+                "4. Para visualizar su perfil presiona el botón de la parte inferior de una persona en un circulo.\n",
+                fontSize = 22.sp
+            )
+            Image(
+                painter = painterResource(id = R.drawable.ic_facebook16),
+                contentDescription = "Botón seguir",
+                modifier = Modifier.fillMaxWidth().padding(8.dp)
+            )
+
+            Spacer(modifier = Modifier.height(25.dp))
+            Spacer(modifier = Modifier.height(20.dp))
+
+
+            // -------- PASO 5 --------
+            Text("Notificaciones.\n", fontSize = 26.sp)
+
+            Text(
+                "5. Para revisar las notificaciones, presiona en la campanita de la parte inferior.\n",
+                fontSize = 22.sp
+            )
+            Image(
+                painter = painterResource(id = R.drawable.ic_facebook17),
+                contentDescription = "Me gusta",
+                modifier = Modifier.fillMaxWidth().padding(8.dp)
+            )
+
+            Spacer(modifier = Modifier.height(25.dp))
+
+
+            // -------- MENSAJE FINAL --------
+            Text(
+                text =
+                    if (username.isNullOrEmpty())
+                        "¡Excelente! Ya sabes usar lo básico de Facebook. Ahora puedes navegar, seguir personas y mas. ¡Felicidades!"
+                    else
+                        "¡Muy bien $username! Ya sabes usar lo básico de Facebook. Ahora puedes navegar, seguir personas y mas. ¡Sigue así!",
+                fontSize = 22.sp
+            )
+
+            Spacer(modifier = Modifier.height(30.dp))
+            Button(onClick = { navController.popBackStack() }) {
+                Text("<- Volver al menú", fontSize = 20.sp)
+            }
         }
     }
 }

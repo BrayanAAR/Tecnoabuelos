@@ -1,27 +1,24 @@
 package com.example.tecnoabuelos.view.Home
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.example.tecnoabuelos.R
 import com.example.tecnoabuelos.view.core.navigation.Screens
 import kotlinx.coroutines.launch
-
-// Importaciones necesarias para el botón de edición
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Edit
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -30,10 +27,8 @@ fun HomeScreens(navController: NavHostController, homeViewModel: HomeViewModel =
     val temaOscuro by homeViewModel.temaOscuro.collectAsState()
     val username by homeViewModel.username.collectAsState()
     var nombreTemp by remember { mutableStateOf(username ?: "") }
-    val nombreGuardado = username.isNullOrEmpty().not()
-
-    // Controla si se está en modo edición de nombre
-    var isEditingName by remember { mutableStateOf(!nombreGuardado) }
+    var isEditingName by remember { mutableStateOf(false) }
+    var showMenu by remember { mutableStateOf(false) }
 
     val opciones = listOf(
         R.drawable.ic_redessociales to "Redes Sociales",
@@ -52,6 +47,24 @@ fun HomeScreens(navController: NavHostController, homeViewModel: HomeViewModel =
                         "TECNOABUELOS",
                         style = MaterialTheme.typography.headlineLarge
                     )
+                },
+                actions = {
+                    IconButton(onClick = { showMenu = true }) {
+                        Icon(Icons.Default.MoreVert, contentDescription = "Ajustes")
+                    }
+                    DropdownMenu(
+                        expanded = showMenu,
+                        onDismissRequest = { showMenu = false }
+                    ) {
+                        DropdownMenuItem(
+                            text = { Text("Cambiar nombre") },
+                            onClick = {
+                                isEditingName = true
+                                nombreTemp = username ?: ""
+                                showMenu = false
+                            }
+                        )
+                    }
                 }
             )
         }
@@ -63,70 +76,53 @@ fun HomeScreens(navController: NavHostController, homeViewModel: HomeViewModel =
                 .padding(horizontal = 24.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Spacer(Modifier.height(30.dp))
+            Spacer(Modifier.height(16.dp))
 
-            // --- SECCIÓN: INGRESO/EDICIÓN DE NOMBRE ---
             if (isEditingName) {
+                // --- SECCIÓN DE EDICIÓN ---
                 OutlinedTextField(
                     value = nombreTemp,
                     onValueChange = { nombreTemp = it },
-                    label = { Text("Escribe tu nombre aquí", style = bodyLargeStyle) },
-                    placeholder = { Text("Ej. Elena", style = bodyLargeStyle) },
+                    label = { Text("Cambia tu nombre", style = bodyLargeStyle) },
                     modifier = Modifier.fillMaxWidth(),
                     textStyle = bodyLargeStyle,
                     singleLine = true
                 )
-                Button(
-                    onClick = {
-                        scope.launch {
-                            homeViewModel.setUsername(nombreTemp)
-                            isEditingName = false // Desactiva la edición
-                        }
-                    },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .heightIn(min = 56.dp)
-                        .padding(vertical = 10.dp),
-                    enabled = nombreTemp.isNotBlank()
+                Row(
+                    modifier = Modifier.fillMaxWidth().padding(vertical = 10.dp),
+                    horizontalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
-                    Text("GUARDAR MI NOMBRE", style = titleLargeStyle)
+                    OutlinedButton(
+                        onClick = { isEditingName = false },
+                        modifier = Modifier.weight(1f).heightIn(min = 56.dp)
+                    ) {
+                        Text("CANCELAR", style = titleLargeStyle)
+                    }
+                    Button(
+                        onClick = {
+                            scope.launch {
+                                homeViewModel.setUsername(nombreTemp)
+                                isEditingName = false
+                            }
+                        },
+                        modifier = Modifier.weight(1f).heightIn(min = 56.dp),
+                        enabled = nombreTemp.isNotBlank()
+                    ) {
+                        Text("GUARDAR", style = titleLargeStyle)
+                    }
                 }
                 Spacer(modifier = Modifier.height(20.dp))
             } else {
-                // --- SECCIÓN: SALUDO Y BOTÓN DE EDICIÓN ---
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
-                    // Pregunta principal, con el nombre
-                    Text(
-                        text = "$username, ¿qué quieres aprender hoy?",
-                        style = headlineSmallStyle,
-                        color = MaterialTheme.colorScheme.onSurface,
-                        modifier = Modifier.weight(1f) // Ocupa el espacio restante
-                    )
+                // --- VISTA PRINCIPAL ---
+                Text(
+                    text = if (!username.isNullOrEmpty()) "$username, ¿qué quieres aprender hoy?" else "¿Qué quieres aprender hoy?",
+                    style = headlineSmallStyle,
+                    color = MaterialTheme.colorScheme.onSurface,
+                    modifier = Modifier.fillMaxWidth()
+                )
+                Spacer(Modifier.height(24.dp))
 
-                    // Botón para volver a editar el nombre
-                    IconButton(
-                        onClick = {
-                            isEditingName = true // Activar la edición
-                            nombreTemp = username ?: ""
-                        },
-                        modifier = Modifier.size(56.dp)
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.Edit,
-                            contentDescription = "Cambiar nombre",
-                            modifier = Modifier.size(32.dp)
-                        )
-                    }
-                }
-                Spacer(Modifier.height(30.dp))
-            }
-
-            // --- SECCIÓN: MODO OSCURO (Solo visible si NO se está editando) ---
-            if (!isEditingName) {
+                // Switch de Modo Oscuro
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     modifier = Modifier
@@ -139,20 +135,16 @@ fun HomeScreens(navController: NavHostController, homeViewModel: HomeViewModel =
                         onCheckedChange = { scope.launch { homeViewModel.setTemaOscuro(it) } }
                     )
                 }
-
                 Divider()
-                Spacer(Modifier.height(30.dp))
-            }
+                Spacer(Modifier.height(24.dp))
 
-
-            // --- SECCIÓN: MÓDULOS (Solo visible si NO se está editando) ---
-            if (!isEditingName) {
+                // Módulos de aprendizaje
                 LazyVerticalGrid(
                     columns = GridCells.Fixed(2),
                     modifier = Modifier.fillMaxSize(),
                     horizontalArrangement = Arrangement.spacedBy(20.dp),
                     verticalArrangement = Arrangement.spacedBy(20.dp),
-                    contentPadding = PaddingValues(8.dp)
+                    contentPadding = PaddingValues(bottom = 16.dp)
                 ) {
                     items(opciones) { (imagen, texto) ->
                         Surface(
@@ -177,10 +169,7 @@ fun HomeScreens(navController: NavHostController, homeViewModel: HomeViewModel =
                                     modifier = Modifier.size(140.dp)
                                 )
                                 Spacer(modifier = Modifier.height(16.dp))
-                                Text(
-                                    texto,
-                                    style = titleLargeStyle
-                                )
+                                Text(texto, style = titleLargeStyle)
                             }
                         }
                     }

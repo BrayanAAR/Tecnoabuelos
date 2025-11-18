@@ -27,6 +27,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
@@ -74,13 +75,13 @@ fun Telefono(navController: NavHostController,homeViewModel: HomeViewModel = vie
         ){
             if (!username.isNullOrEmpty()) {
                 Text(
-                    text = "$username, elige una lección:",
+                    text = "Muy bien $username, Selecciona una lección para empezar",
                     style = headlineSmallStyle.copy(fontSize = titleLargeStyle.fontSize),
                     modifier = Modifier.fillMaxWidth()
                 )
                 Spacer(modifier = Modifier.height(20.dp))
             }
-            ButtonLesson(navController, Screens.NavegacionTelefono.route, "Como navegar por los contactos", titleLargeStyle)
+            ButtonLesson(navController, Screens.NavegacionTelefono.route, "¿Cómo se navega por los contactos?", titleLargeStyle)
             //ButtonLesson(navController, Screens.CrearCuentaInstagram.route, "Como marcar a un contacto", titleLargeStyle)
             //ButtonLesson(navController, Screens.OpcionPerfilInstagram.route, "como guardar un contacto", titleLargeStyle)
             //ButtonLesson(navController, Screens.PublicarInstagram.route, "Como ver el registro de llamadas", titleLargeStyle)
@@ -112,7 +113,7 @@ fun ButtonLesson(
             .heightIn(min = 70.dp),
         contentPadding = PaddingValues(16.dp)
     ) {
-        Text(text, style = textStyle, maxLines = 2)
+        Text(text, style = textStyle, maxLines = 2, textAlign = TextAlign.Center)
     }
     Spacer(modifier = Modifier.height(20.dp))
 }

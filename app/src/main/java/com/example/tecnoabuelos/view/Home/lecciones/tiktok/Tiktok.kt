@@ -11,6 +11,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
@@ -57,15 +58,15 @@ fun Tiktok(navController: NavHostController, homeViewModel: HomeViewModel = view
 
             if (!username.isNullOrEmpty()) {
                 Text(
-                    text = "$username, elige una lección:",
+                    text = "Muy bien $username, Selecciona una lección para empezar",
                     style = headlineSmallStyle.copy(fontSize = titleLargeStyle.fontSize),
                     modifier = Modifier.fillMaxWidth()
                 )
                 Spacer(modifier = Modifier.height(20.dp))
             }
-            ButtonLesson(navController, Screens.DescargarTiktok.route, "Cómo descargar Tiktok", titleLargeStyle)
-            ButtonLesson(navController, Screens.NavegacionBasicaTiktok.route, "Cococe mas de Tiktok", titleLargeStyle)
-            ButtonLesson(navController, Screens.CrearCuentaTiktok.route, "Como crear tu cuenta de Tiktok", titleLargeStyle)
+            ButtonLesson(navController, Screens.DescargarTiktok.route, "¿Cómo se descarga Tiktok?", titleLargeStyle)
+            ButtonLesson(navController, Screens.NavegacionBasicaTiktok.route, "Conoce más de Tiktok", titleLargeStyle)
+            ButtonLesson(navController, Screens.CrearCuentaTiktok.route, "¿Cómo se crea una cuenta de Tiktok?", titleLargeStyle)
 
             Spacer(modifier = Modifier.height(30.dp))
             Button(
@@ -95,7 +96,7 @@ fun ButtonLesson(
             .heightIn(min = 70.dp),
         contentPadding = PaddingValues(16.dp)
     ) {
-        Text(text, style = textStyle, maxLines = 2)
+        Text(text, style = textStyle, maxLines = 2, textAlign = TextAlign.Center)
     }
     Spacer(modifier = Modifier.height(20.dp))
 }
