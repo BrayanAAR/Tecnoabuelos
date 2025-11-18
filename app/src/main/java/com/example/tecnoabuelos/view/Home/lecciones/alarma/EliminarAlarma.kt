@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -29,6 +30,7 @@ fun EliminarAlarma(
     homeViewModel: HomeViewModel = viewModel()
 ) {
     val username = homeViewModel.username.collectAsState().value
+    val headlineSmallStyle = MaterialTheme.typography.headlineSmall
 
     Column(
         modifier = Modifier
@@ -38,7 +40,7 @@ fun EliminarAlarma(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Spacer(modifier = Modifier.height(50.dp))
-        Text("Como eliminar una la Alarma", fontSize = 26.sp)
+        Text("Como eliminar una la Alarma", style=headlineSmallStyle)
         Spacer(modifier = Modifier.height(20.dp))
 
         Text("1. Busca el siguiente ícono en tu pantalla, Puede decir Reloj o Alarma.\n", fontSize = 22.sp)

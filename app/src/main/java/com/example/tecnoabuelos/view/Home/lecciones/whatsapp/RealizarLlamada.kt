@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -31,6 +32,7 @@ fun RealizarLlamada(
     homeViewModel: HomeViewModel = viewModel()
 ) {
     val username = homeViewModel.username.collectAsState().value
+    val headlineSmallStyle = MaterialTheme.typography.headlineSmall
 
     Column(
         modifier = Modifier
@@ -40,7 +42,7 @@ fun RealizarLlamada(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Spacer(modifier = Modifier.height(50.dp))
-        Text("Cómo realizar una llamada de WhatsApp", fontSize = 26.sp)
+        Text("Cómo realizar una llamada de WhatsApp",style=headlineSmallStyle)
         Spacer(modifier = Modifier.height(20.dp))
 
         Text("1. Busca el siguiente ícono WhatsApp en tu pantalla.\n", fontSize = 22.sp)

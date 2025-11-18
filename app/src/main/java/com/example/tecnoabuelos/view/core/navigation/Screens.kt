@@ -18,6 +18,12 @@ sealed class Screens(val route: String) {
 
     //Facebook
     object Facebook : Screens("Facebook")
+    object DescargarFacebook : Screens("DescargarFacebook")
+    object CrearCuentaFacebook : Screens("CrearCuentaFacebook")
+    object NavegacionBasicaFacebook : Screens("NavegacionBasicaFacebook")
+    // object Facebook : Screens("Facebook")
+    // object Facebook : Screens("Facebook")
+    // object Facebook : Screens("Facebook")
 
     //Instagram
     object Instagram : Screens("Instagram")
@@ -33,6 +39,9 @@ sealed class Screens(val route: String) {
 
     //Tiktok
     object Tiktok : Screens("Tiktok")
+    object DescargarTiktok : Screens("DescargarTiktok")
+    object CrearCuentaTiktok : Screens("CrearCuentaTiktok")
+    object NavegacionBasicaTiktok : Screens("NavegacionBasicaTiktok")
 
     //Internet
     object Interner : Screens("Interner")
@@ -50,8 +59,9 @@ sealed class Screens(val route: String) {
 
     //object Buscador : Screens("Buscador")
 
-    //Contacto
-    object Contactos : Screens("Contactos")
+    //Telefono
+    object Telefono : Screens("Telefono")
+    object NavegacionTelefono : Screens("NavegacionTelefono")
 
     //Camara
     object Camara : Screens("Camara")

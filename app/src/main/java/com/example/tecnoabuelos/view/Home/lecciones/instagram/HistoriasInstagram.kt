@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -30,6 +31,7 @@ fun HistoriasInstagram(
     homeViewModel: HomeViewModel = viewModel()
 ){
     val username = homeViewModel.username.collectAsState().value
+    val headlineSmallStyle = MaterialTheme.typography.headlineSmall
 
     Column(
         modifier = Modifier
@@ -40,12 +42,7 @@ fun HistoriasInstagram(
     ) {
 
         Spacer(modifier = Modifier.height(50.dp))
-
-        Text(
-            "Cómo subir Historias en Instagram",
-            fontSize = 26.sp
-        )
-
+        Text("Cómo subir Historias en Instagram",style=headlineSmallStyle)
         Spacer(modifier = Modifier.height(20.dp))
 
 

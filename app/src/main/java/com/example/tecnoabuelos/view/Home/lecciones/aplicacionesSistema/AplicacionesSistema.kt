@@ -11,81 +11,113 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.example.tecnoabuelos.R
 import com.example.tecnoabuelos.view.core.navigation.Screens
-import com.example.tecnoabuelos.data.datastore.PreferencesRepository
-import kotlinx.coroutines.launch
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material.icons.Icons
+
+private val ICON_SIZE = 140.dp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AplicacionesSistema(navController: NavHostController, homeViewModel: HomeViewModel = viewModel()) {
-    val context = LocalContext.current
-    val scope = rememberCoroutineScope()
-    val temaOscuro by homeViewModel.temaOscuro.collectAsState()
     val username by homeViewModel.username.collectAsState()
-    var nombreTemp by remember { mutableStateOf(username ?: "") }
-
-
     val opciones = listOf(
         R.drawable.ic_galeria to "Galeria",
         R.drawable.ic_reloj to "Reloj",
-        R.drawable.ic_camara to "Camara",
+        R.drawable.ic_contactos to "Contacto",
 
     )
+    val headlineLargeStyle = MaterialTheme.typography.headlineLarge
+    val headlineSmallStyle = MaterialTheme.typography.headlineSmall
+    val titleLargeStyle = MaterialTheme.typography.titleLarge
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Spacer(modifier = Modifier.height(50.dp))
-        Text("TECNOABUELOS", fontSize = 32.sp)
-        Spacer(modifier = Modifier.height(10.dp))
-
-        Text(
-            text = if (username.isNullOrEmpty())
-                "¿Qué quieres aprender hoy?"
-            else
-                "$username, ¿qué quieres aprender hoy?",
-            fontSize = 22.sp
-        )
-
-        Spacer(modifier = Modifier.height(20.dp))
-
-        // Cuadrícula 2xN
-        LazyVerticalGrid(
-            columns = GridCells.Fixed(2),
-            modifier = Modifier.fillMaxSize(),
-            contentPadding = PaddingValues(8.dp)
+    Scaffold(
+        topBar = {
+            CenterAlignedTopAppBar(
+                title = {
+                    Text("Aplicaciones del sistema", style = headlineSmallStyle)
+                },
+                navigationIcon = {
+                    IconButton(onClick = { navController.popBackStack() }) {
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                            contentDescription = "Volver",
+                            modifier = Modifier.size(32.dp)
+                        )
+                    }
+                },
+                colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.primaryContainer,
+                    titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer
+                )
+            )
+        }
+    ) { paddingValues ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(paddingValues)
+                .padding(horizontal = 24.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            items(opciones) { (imagen, texto) ->
-                Column(
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    modifier = Modifier
-                        .padding(12.dp)
-                        .clickable {
-                            when (texto) {
-                                "Galeria" -> navController.navigate(Screens.Galeria.route)
-                                "Reloj" -> navController.navigate(Screens.Alarma.route)
-                                "Camara" -> navController.navigate(Screens.Camara.route)
+            Spacer(modifier = Modifier.height(20.dp))
 
+            Text(
+                text = if (username.isNullOrEmpty())
+                    "Elige qué aplicacion quieres aprender:"
+                else
+                    "$username, elige qué aplicacion quieres aprender:",
+                style = headlineSmallStyle,
+                modifier = Modifier.fillMaxWidth()
+            )
+
+            Spacer(modifier = Modifier.height(30.dp))
+
+            // Cuadrícula 2xN
+            LazyVerticalGrid(
+                columns = GridCells.Fixed(2),
+                modifier = Modifier.fillMaxSize(),
+                horizontalArrangement = Arrangement.spacedBy(20.dp), // Espaciado amplio
+                verticalArrangement = Arrangement.spacedBy(20.dp),
+                contentPadding = PaddingValues(8.dp)
+            ) {
+                items(opciones) { (imagen, texto) ->
+                    Surface(
+                        shape = MaterialTheme.shapes.medium,
+                        shadowElevation = 4.dp,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable {
+                                when (texto) {
+                                    "Galeria" -> navController.navigate(Screens.Galeria.route)
+                                    "Reloj" -> navController.navigate(Screens.Alarma.route)
+                                    "Contacto" -> navController.navigate(Screens.Telefono.route)
+                                }
                             }
+                    ) {
+                        Column(
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            modifier = Modifier.padding(vertical = 20.dp, horizontal = 8.dp)
+                        ) {
+                            Image(
+                                painter = painterResource(id = imagen),
+                                contentDescription = texto,
+                                modifier = Modifier.size(ICON_SIZE)
+                            )
+                            Spacer(modifier = Modifier.height(16.dp))
+                            Text(
+                                texto,
+                                style = titleLargeStyle
+                            )
                         }
-                ) {
-                    Image(
-                        painter = painterResource(id = imagen),
-                        contentDescription = texto,
-                        modifier = Modifier.size(120.dp)
-                    )
-                    Spacer(modifier = Modifier.height(8.dp))
-                    Text(texto, fontSize = 20.sp)
+                    }
                 }
             }
         }
