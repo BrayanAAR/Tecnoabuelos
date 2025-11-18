@@ -46,7 +46,7 @@ fun Telefono(navController: NavHostController,homeViewModel: HomeViewModel = vie
         topBar = {
             CenterAlignedTopAppBar(
                 title = {
-                    Text("Instagram", style = headlineSmallStyle)
+                    Text("Telefono", style = headlineSmallStyle)
                 },
                 navigationIcon = {
                     IconButton(onClick = { navController.popBackStack() }) {
