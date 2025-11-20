@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <!-- Tema principal para la app con Compose -->
     <style name="Theme.TecnoAbuelos" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <!-- Tema para la pantalla de bienvenida (WelcomeActivity) -->
+    <style name="Theme.App.Starting" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Aquí podrías personalizar atributos como el color de la barra de estado -->
+        <!-- <item name="android:statusBarColor">@android:color/transparent</item> -->
+    </style>
 </resources>

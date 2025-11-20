@@ -11,6 +11,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
@@ -57,18 +58,18 @@ fun Whatsapp(navController: NavHostController, homeViewModel: HomeViewModel = vi
 
             if (!username.isNullOrEmpty()) {
                 Text(
-                    text = "$username, elige una lección:",
+                    text = "Muy bien $username, Selecciona una lección para empezar",
                     style = headlineSmallStyle.copy(fontSize = titleLargeStyle.fontSize),
                     modifier = Modifier.fillMaxWidth()
                 )
                 Spacer(modifier = Modifier.height(20.dp))
             }
-            ButtonLesson(navController, Screens.DescargaWhatsapp.route, "Cómo descargar WhatsApp", titleLargeStyle)
-            ButtonLesson(navController, Screens.FotoPerfil.route, "Cómo cambiar la foto de perfil", titleLargeStyle)
-            ButtonLesson(navController, Screens.AgregarContacto.route, "Cómo agregar un contacto", titleLargeStyle)
-            ButtonLesson(navController, Screens.EnviarContacto.route, "Cómo enviar un contacto", titleLargeStyle)
-            ButtonLesson(navController, Screens.CambiarTamaño.route, "Cómo cambiar el tamaño de la letra", titleLargeStyle)
-            ButtonLesson(navController, Screens.RealizarLlamada.route, "Cómo realizar una llamada", titleLargeStyle)
+            ButtonLesson(navController, Screens.DescargaWhatsapp.route, "¿Cómo se descarga WhatsApp?", titleLargeStyle)
+            ButtonLesson(navController, Screens.FotoPerfil.route, "¿Cómo se cambia la foto de perfil?", titleLargeStyle)
+            ButtonLesson(navController, Screens.AgregarContacto.route, "¿Cómo se agrega un contacto", titleLargeStyle)
+            ButtonLesson(navController, Screens.EnviarContacto.route, "¿Cómo se envia un contacto?", titleLargeStyle)
+            ButtonLesson(navController, Screens.CambiarTamaño.route, "¿Cómo se cambia el tamaño de la letra?", titleLargeStyle)
+            ButtonLesson(navController, Screens.RealizarLlamada.route, "¿Cómo se realiza una llamada en WhatsApp?", titleLargeStyle)
 
             Spacer(modifier = Modifier.height(30.dp))
             Button(
@@ -98,7 +99,7 @@ fun ButtonLesson(
             .heightIn(min = 70.dp),
         contentPadding = PaddingValues(16.dp)
     ) {
-        Text(text, style = textStyle, maxLines = 2)
+        Text(text, style = textStyle, maxLines = 2, textAlign = TextAlign.Center)
     }
     Spacer(modifier = Modifier.height(20.dp))
 }

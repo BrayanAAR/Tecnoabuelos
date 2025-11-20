@@ -27,6 +27,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
@@ -46,7 +47,7 @@ fun Instagram(navController: NavHostController,homeViewModel: HomeViewModel = vi
         topBar = {
             CenterAlignedTopAppBar(
                 title = {
-                    Text("Instagram", style = headlineSmallStyle)
+                    Text("Instagram", style = headlineSmallStyle, textAlign = TextAlign.Center)
                 },
                 navigationIcon = {
                     IconButton(onClick = { navController.popBackStack() }) {
@@ -74,19 +75,19 @@ fun Instagram(navController: NavHostController,homeViewModel: HomeViewModel = vi
         ){
             if (!username.isNullOrEmpty()) {
                 Text(
-                    text = "$username, elige una lección:",
+                    text = "Muy bien $username, Selecciona una lección para empezar",
                     style = headlineSmallStyle.copy(fontSize = titleLargeStyle.fontSize),
                     modifier = Modifier.fillMaxWidth()
                 )
                 Spacer(modifier = Modifier.height(20.dp))
         }
-            ButtonLesson(navController, Screens.DescargarInstagram.route, "Como descargar Instagram", titleLargeStyle)
-            ButtonLesson(navController, Screens.CrearCuentaInstagram.route, "Como crear tu cuenta de Instagram", titleLargeStyle)
+            ButtonLesson(navController, Screens.DescargarInstagram.route, "¿Cómo se descarga Instagram?", titleLargeStyle)
+            ButtonLesson(navController, Screens.CrearCuentaInstagram.route, "¿Cómo se crea una cuenta de Instagram?", titleLargeStyle)
             ButtonLesson(navController, Screens.OpcionPerfilInstagram.route, "Opciones del perfil", titleLargeStyle)
-            ButtonLesson(navController, Screens.MensajesInstagram.route, "Como visualizar y responder mensajes de instagram", titleLargeStyle)
-            ButtonLesson(navController, Screens.HistoriasInstagram.route, "Como subir historias en Instagram", titleLargeStyle)
-            ButtonLesson(navController, Screens.BuscadorInstagram.route, "Como buscar cuentas, dar me gustas, comentar, compartir o guardar una publicacion en Instagram", titleLargeStyle)
-            ButtonLesson(navController, Screens.PublicarInstagram.route, "Como publicar una foto o video en Instagram", titleLargeStyle)
+            ButtonLesson(navController, Screens.MensajesInstagram.route, "¿Cómo se visualizan y responden mensajes de instagram?", titleLargeStyle)
+            ButtonLesson(navController, Screens.HistoriasInstagram.route, "¿Cómo se suben historias en Instagram?", titleLargeStyle)
+            ButtonLesson(navController, Screens.BuscadorInstagram.route, "¿Cómo se buscan cuentas, se dan me gustas, se comenta, se comparte o guarda una publicacion en Instagram?", titleLargeStyle)
+            ButtonLesson(navController, Screens.PublicarInstagram.route, "¿Cómo se publica una foto o video en Instagram?", titleLargeStyle)
             Spacer(modifier = Modifier.height(30.dp))
             Button(
                 onClick = { navController.popBackStack() },
@@ -115,7 +116,7 @@ fun ButtonLesson(
             .heightIn(min = 70.dp),
         contentPadding = PaddingValues(16.dp)
     ) {
-        Text(text, style = textStyle, maxLines = 2)
+        Text(text, style = textStyle, maxLines = 2, textAlign = TextAlign.Center)
     }
     Spacer(modifier = Modifier.height(20.dp))
 }

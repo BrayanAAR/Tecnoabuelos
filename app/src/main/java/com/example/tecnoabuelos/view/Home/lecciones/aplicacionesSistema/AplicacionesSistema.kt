@@ -71,9 +71,9 @@ fun AplicacionesSistema(navController: NavHostController, homeViewModel: HomeVie
 
             Text(
                 text = if (username.isNullOrEmpty())
-                    "Elige qué aplicacion quieres aprender:"
+                    "¿Qué aplicación te gustaría aprender hoy?"
                 else
-                    "$username, elige qué aplicacion quieres aprender:",
+                    "$username, ¿Qué aplicación te gustaría aprender hoy?",
                 style = headlineSmallStyle,
                 modifier = Modifier.fillMaxWidth()
             )

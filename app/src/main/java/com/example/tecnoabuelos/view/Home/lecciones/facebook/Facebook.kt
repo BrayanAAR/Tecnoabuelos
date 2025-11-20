@@ -28,6 +28,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -75,15 +76,15 @@ fun Facebook(navController: NavHostController, homeViewModel: HomeViewModel = vi
 
             if (!username.isNullOrEmpty()) {
                 Text(
-                    text = "$username, elige una lección:",
+                    text = "Muy bien $username, Selecciona una lección para empezar",
                     style = headlineSmallStyle.copy(fontSize = titleLargeStyle.fontSize),
                     modifier = Modifier.fillMaxWidth()
                 )
                 Spacer(modifier = Modifier.height(20.dp))
             }
-            ButtonLesson(navController, Screens.DescargarFacebook.route, "Como descargar Facebook", titleLargeStyle)
-            ButtonLesson(navController, Screens.CrearCuentaFacebook.route, "Como crear tu cuenta de Facebook", titleLargeStyle)
-            ButtonLesson(navController, Screens.NavegacionBasicaFacebook.route, "Cococe mas de Facebook", titleLargeStyle)
+            ButtonLesson(navController, Screens.DescargarFacebook.route, "¿Cómo se descarga Facebook?", titleLargeStyle)
+            ButtonLesson(navController, Screens.CrearCuentaFacebook.route, "¿Cómo se crea una cuenta en Facebook?", titleLargeStyle)
+            ButtonLesson(navController, Screens.NavegacionBasicaFacebook.route, "Conoce más de Facebook", titleLargeStyle)
 
             Spacer(modifier = Modifier.height(30.dp))
             Button(
@@ -113,7 +114,7 @@ fun ButtonLesson(
             .heightIn(min = 70.dp),
         contentPadding = PaddingValues(16.dp)
     ) {
-        Text(text, style = textStyle, maxLines = 2)
+        Text(text, style = textStyle, maxLines = 2, textAlign = TextAlign.Center)
     }
     Spacer(modifier = Modifier.height(20.dp))
 }
