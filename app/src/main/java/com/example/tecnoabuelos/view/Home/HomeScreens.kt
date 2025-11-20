@@ -34,16 +34,6 @@ import com.example.tecnoabuelos.R
 import com.example.tecnoabuelos.view.core.navigation.Screens
 import kotlinx.coroutines.launch
 
-// IMPORT DE BARA DE NAVEGACIÓN, SUJETO A CAMBIOS
-
-//import android.app.Activity
-//import androidx.compose.runtime.Composable
-//import androidx.compose.runtime.DisposableEffect
-//import androidx.compose.ui.platform.LocalContext
-//import androidx.core.view.WindowCompat
-//import androidx.core.view.WindowInsetsCompat
-//import androidx.core.view.WindowInsetsControllerCompat
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreens(navController: NavHostController, homeViewModel: HomeViewModel = viewModel()) {
@@ -64,7 +54,6 @@ fun HomeScreens(navController: NavHostController, homeViewModel: HomeViewModel =
         nombreTemp = username ?: ""
     }
 
-//    OcultarBarraNavegacion()
 
     Scaffold(
         topBar = {
@@ -74,12 +63,6 @@ fun HomeScreens(navController: NavHostController, homeViewModel: HomeViewModel =
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.Center
                     ) {
-                        // --- CAMBIO AQUÍ: USAMOS 'Image' PARA TU RECURSO DRAWABLE ---
-                        Image(
-                            painter = painterResource(id = R.drawable.icono_app),
-                            contentDescription = "Logo de TecnoAbuelos",
-                            modifier = Modifier.size(36.dp)
-                        )
 
                         Spacer(modifier = Modifier.width(12.dp))
 
@@ -221,9 +204,6 @@ fun HomeScreens(navController: NavHostController, homeViewModel: HomeViewModel =
                     text = if (!username.isNullOrEmpty()) "¡Hola, $username!" else "¡Hola!",
                     fontSize = 32.sp,
                     fontWeight = FontWeight.ExtraBold,
-                    // LÓGICA DE COLOR:
-                    // Si es modo oscuro -> Blanco (para máximo contraste)
-                    // Si es modo claro  -> Tu color primario (Morado/Azul)
                     color = if (temaOscuro) MaterialTheme.colorScheme.onSurface else Color.Black
                 )
 
@@ -231,9 +211,6 @@ fun HomeScreens(navController: NavHostController, homeViewModel: HomeViewModel =
                     text = "¿Qué quieres hacer hoy?",
                     fontSize = 22.sp,
                     fontWeight = FontWeight.Medium,
-                    // LÓGICA DE COLOR:
-                    // Si es modo oscuro -> Gris Claro (LightGray) para que se lea sobre negro
-                    // Si es modo claro  -> Gris Oscuro (Gray) para que se lea sobre blanco
                     color = if (temaOscuro) Color.LightGray else Color.Gray
                 )
 
@@ -250,6 +227,7 @@ fun HomeScreens(navController: NavHostController, homeViewModel: HomeViewModel =
                     items(opciones) { (imagen, texto) ->
                         Card(
                             shape = RoundedCornerShape(20.dp),
+
                             elevation = CardDefaults.cardElevation(6.dp),
                             colors = CardDefaults.cardColors(containerColor = Color.White), // Fondo Blanco
                             modifier = Modifier
@@ -283,7 +261,10 @@ fun HomeScreens(navController: NavHostController, homeViewModel: HomeViewModel =
                                     fontWeight = FontWeight.Bold,
                                     textAlign = TextAlign.Center,
                                     lineHeight = 24.sp,
-                                    color = Color.Black
+                                    color = Color.Black,
+                                    minLines = 2, // Fuerza a que el texto siempre ocupe el alto de 2 líneas
+                                    maxLines = 2, // Evita que crezca más de 2 líneas
+                                    overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis // Pone "..." si se pasa
                                 )
                             }
                         }
@@ -293,29 +274,3 @@ fun HomeScreens(navController: NavHostController, homeViewModel: HomeViewModel =
         }
     }
 }
-
-// --------------------------------------- OCULTAR BARRA DE NAVEGACIÓN BOTTOM -----------------------------------------
-
-//@Composable
-//fun OcultarBarraNavegacion() {
-//    val context = LocalContext.current
-//
-//    DisposableEffect(Unit) {
-//        val activity = context as? Activity ?: return@DisposableEffect onDispose {}
-//        val window = activity.window
-//        val insetsController = WindowCompat.getInsetsController(window, window.decorView)
-//
-//        // 1. Configurar el comportamiento: Que aparezcan si el usuario desliza desde el borde
-//        insetsController.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
-//
-//        // 2. Ocultar la barra de navegación (botones de abajo) y la de estado (hora/batería de arriba)
-//        // Si solo quieres ocultar la de abajo usa: Type.navigationBars()
-//        insetsController.hide(WindowInsetsCompat.Type.systemBars())
-//
-//        onDispose {
-//            // (Opcional) Si sales de esta pantalla, ¿quieres que vuelvan a aparecer?
-//            // Si quieres que toda la app sea así, borra esta línea de abajo.
-//            insetsController.show(WindowInsetsCompat.Type.systemBars())
-//        }
-//    }
-//}
